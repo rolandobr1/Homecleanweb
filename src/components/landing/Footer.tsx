@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Sparkles } from "lucide-react";
+import { Sparkles, Facebook } from "lucide-react";
 import Image from "next/image";
 
 const footerLinks = {
@@ -57,8 +57,8 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold mb-4 text-blue-400">Síguenos</h4>
             <div className="flex items-center gap-4">
-              <Link href="#" aria-label="Facebook">
-                <Image src="/images/face.png" alt="Facebook" width={24} height={24} className="hover:opacity-80" />
+              <Link href="#" aria-label="Facebook" className="text-gray-300 hover:text-blue-400">
+                <Facebook className="h-6 w-6" />
               </Link>
               <Link href="#" aria-label="Instagram">
                 <Image src="/images/ig.png" alt="Instagram" width={24} height={24} className="hover:opacity-80" />
