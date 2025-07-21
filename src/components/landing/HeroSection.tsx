@@ -12,9 +12,14 @@ export default function HeroSection() {
   return (
     <section 
       id="home" 
-      className="relative h-[90vh] min-h-[600px] w-full bg-hero-pattern bg-cover bg-center bg-no-repeat"
+      className="relative h-[90vh] min-h-[600px] w-full"
     >
-        <div className="absolute inset-0 bg-black/50 z-10" />
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/cuabaenhabitat.png')" }}
+        >
+            <div className="absolute inset-0 bg-black/50 z-10" />
+        </div>
         <div className="relative z-20 flex h-full flex-col items-center justify-center text-center text-white px-4">
             <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl font-headline">
             Tu Hogar, Impecablemente Limpio
