@@ -1,6 +1,7 @@
 import ContactForm from "./ContactForm";
-import { Phone, MessageSquare, Mail } from "lucide-react";
+import { Phone, Mail } from "lucide-react";
 import Link from 'next/link';
+import Image from "next/image";
 
 export default function ContactSection() {
   return (
@@ -29,7 +30,7 @@ export default function ContactSection() {
               </div>
             </div>
             <div className="flex items-start gap-4">
-              <MessageSquare className="h-6 w-6 text-primary mt-1" />
+               <Image src="/images/wa.png" alt="WhatsApp" width={24} height={24} className="mt-1" />
               <div>
                 <h4 className="font-semibold">WhatsApp</h4>
                 <Link href="https://wa.me/18095551234" target="_blank" className="text-primary hover:underline">
