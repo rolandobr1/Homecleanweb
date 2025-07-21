@@ -1,3 +1,23 @@
+import Header from "@/components/landing/Header";
+import HeroSection from "@/components/landing/HeroSection";
+import ProductsSection from "@/components/landing/ProductsSection";
+import BenefitsSection from "@/components/landing/BenefitsSection";
+import AboutSection from "@/components/landing/AboutSection";
+import ContactSection from "@/components/landing/ContactSection";
+import Footer from "@/components/landing/Footer";
+
 export default function Home() {
-  return <></>;
+  return (
+    <div className="flex min-h-dvh flex-col bg-background">
+      <Header />
+      <main className="flex-1">
+        <HeroSection />
+        <ProductsSection />
+        <BenefitsSection />
+        <AboutSection />
+        <ContactSection />
+      </main>
+      <Footer />
+    </div>
+  );
 }
