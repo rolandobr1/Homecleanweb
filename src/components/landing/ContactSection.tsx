@@ -58,7 +58,7 @@ export default function ContactSection() {
               <Phone className="h-6 w-6 text-primary mt-1" />
               <div>
                 <h4 className="font-semibold">Teléfonos</h4>
-                <p className="text-muted-foreground">(809) 555-1234 / (829) 555-5678</p>
+                <p className="text-muted-foreground">829-691-9556 / 829-326-3602</p>
               </div>
             </div>
             <div className="flex items-start gap-4">
