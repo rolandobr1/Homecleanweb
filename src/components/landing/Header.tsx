@@ -53,10 +53,10 @@ export default function Header() {
             <Button variant="ghost" className="text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground">Iniciar Sesión</Button>
           </Link>
           <div className="flex items-center gap-4">
-             <Link href="#" aria-label="Facebook" className="text-primary-foreground hover:opacity-80">
+             <Link href="https://web.facebook.com/profile.php?id=100063748722913" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-primary-foreground hover:opacity-80">
                 <Image src="/images/face.png" alt="Facebook" width={24} height={24} />
               </Link>
-              <Link href="#" aria-label="Instagram" className="text-primary-foreground hover:opacity-80">
+              <Link href="https://www.instagram.com/homeclean_rd/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-primary-foreground hover:opacity-80">
                 <Image src="/images/ig.png" alt="Instagram" width={24} height={24} className="hover:opacity-80" />
               </Link>
               <Link href={whatsappUrl} target="_blank" aria-label="WhatsApp" className="text-primary-foreground hover:opacity-80">
@@ -99,10 +99,10 @@ export default function Header() {
                     <Button className="w-full">Iniciar Sesión</Button>
                 </Link>
                 <div className="flex justify-center gap-6">
-                    <Link href="#" aria-label="Facebook">
+                    <Link href="https://web.facebook.com/profile.php?id=100063748722913" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                        <Image src="/images/face.png" alt="Facebook" width={24} height={24} />
                     </Link>
-                    <Link href="#" aria-label="Instagram">
+                    <Link href="https://www.instagram.com/homeclean_rd/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                        <Image src="/images/ig.png" alt="Instagram" width={24} height={24} />
                     </Link>
                     <Link href={whatsappUrl} target="_blank" aria-label="WhatsApp">

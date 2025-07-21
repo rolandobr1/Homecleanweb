@@ -65,10 +65,10 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold mb-4 text-blue-400">Síguenos</h4>
             <div className="flex items-center gap-4">
-               <Link href="#" aria-label="Facebook">
+               <Link href="https://web.facebook.com/profile.php?id=100063748722913" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                 <Image src="/images/face.png" alt="Facebook" width={24} height={24} className="hover:opacity-80" />
               </Link>
-              <Link href="#" aria-label="Instagram">
+              <Link href="https://www.instagram.com/homeclean_rd/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                 <Image src="/images/ig.png" alt="Instagram" width={24} height={24} className="hover:opacity-80" />
               </Link>
               <Link href={whatsappUrl} target="_blank" aria-label="WhatsApp">
