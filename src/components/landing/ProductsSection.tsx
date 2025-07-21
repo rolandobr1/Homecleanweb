@@ -113,7 +113,7 @@ export default function ProductsSection() {
                             )}
                             style={{ transitionDelay: `${index * 100}ms` }}
                         >
-                            <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 h-full">
+                            <Card className="overflow-hidden shadow-lg h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
                                 <CardHeader className="p-0">
                                     <Image
                                         src={product.image}
