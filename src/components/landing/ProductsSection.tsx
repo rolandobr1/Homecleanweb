@@ -16,7 +16,7 @@ const products = [
   {
     name: "Jabón de Cuaba",
     description: "Poderoso jabón tradicional para una limpieza profunda y efectiva en múltiples superficies.",
-    image: "https://placehold.co/400x400.png",
+    image: "/images/cuaba.png",
     aiHint: "soap bar",
     sizes: ["Galón", "Medio Galón"],
     features: ["Natural", "Multiuso"],
@@ -24,7 +24,7 @@ const products = [
   {
     name: "Lavaplatos Líquido",
     description: "Arranca la grasa más difícil y deja tus platos rechinando de limpios con un fresco aroma.",
-    image: "https://placehold.co/400x400.png",
+    image: "/images/lavaplatos.png",
     aiHint: "dish soap",
     sizes: ["1L", "500ml"],
     features: ["Desengrasante", "Antibacteriano"],
@@ -32,7 +32,7 @@ const products = [
   {
     name: "Jabón Neutro",
     description: "Fórmula suave y balanceada, ideal para el cuidado de la piel y la limpieza de prendas delicadas.",
-    image: "https://placehold.co/400x400.png",
+    image: "/images/neutrolava.png",
     aiHint: "liquid soap",
     sizes: ["Galón"],
     features: ["Hipoalergénico", "PH Neutro"],
@@ -40,7 +40,7 @@ const products = [
   {
     name: "Desinfectante Frutos Rojos",
     description: "Elimina el 99.9% de gérmenes y bacterias, dejando un aroma irresistible a frutos rojos.",
-    image: "https://placehold.co/400x400.png",
+    image: "/images/frutosrojos.png",
     aiHint: "cleaning spray",
     sizes: ["Galón", "Medio Galón"],
     features: ["Antibacteriano", "Aroma Duradero"],
@@ -48,7 +48,7 @@ const products = [
   {
     name: "Desinfectante Lavanda",
     description: "Un ambiente de calma y limpieza con el poder desinfectante y el relajante aroma a lavanda.",
-    image: "https://placehold.co/400x400.png",
+    image: "/images/lavanda.png",
     aiHint: "disinfectant spray",
     sizes: ["Galón", "Medio Galón"],
     features: ["Relajante", "Limpia y Desinfecta"],
