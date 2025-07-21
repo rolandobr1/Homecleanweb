@@ -30,11 +30,11 @@ export default function Header() {
 
   return (
     <header
-      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-background/80 backdrop-blur-sm shadow-md"
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-primary text-primary-foreground shadow-md"
     >
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center gap-2 font-bold text-xl">
-          <Sparkles className="h-6 w-6 text-primary" />
+          <Sparkles className="h-6 w-6" />
           <span>Home Clean</span>
         </Link>
 
@@ -44,7 +44,7 @@ export default function Header() {
               key={link.href}
               href={link.href}
               onClick={(e) => handleScrollTo(e, link.href)}
-              className="text-sm font-medium text-foreground/80 transition-colors hover:text-primary"
+              className="text-sm font-medium text-primary-foreground/80 transition-colors hover:text-primary-foreground"
             >
               {link.label}
             </Link>
@@ -53,32 +53,32 @@ export default function Header() {
 
         <div className="hidden md:flex items-center gap-4">
           <Link href="#">
-            <Button variant="ghost">Iniciar Sesión</Button>
+            <Button variant="ghost" className="text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground">Iniciar Sesión</Button>
           </Link>
           <div className="flex items-center gap-4">
             <Link href="#" aria-label="Facebook">
-              <Facebook className="h-5 w-5 text-foreground/80 hover:text-primary" />
+              <Facebook className="h-5 w-5 text-primary-foreground/80 hover:text-primary-foreground" />
             </Link>
             <Link href="#" aria-label="Instagram">
-              <Instagram className="h-5 w-5 text-foreground/80 hover:text-primary" />
+              <Instagram className="h-5 w-5 text-primary-foreground/80 hover:text-primary-foreground" />
             </Link>
             <Link href="#" aria-label="WhatsApp">
-              <MessageSquare className="h-5 w-5 text-foreground/80 hover:text-primary" />
+              <MessageSquare className="h-5 w-5 text-primary-foreground/80 hover:text-primary-foreground" />
             </Link>
           </div>
         </div>
 
         <Sheet open={isMobileMenuOpen} onOpenChange={setMobileMenuOpen}>
           <SheetTrigger asChild className="md:hidden">
-            <Button variant="ghost" size="icon">
+            <Button variant="ghost" size="icon" className="text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground">
               <Menu className="h-6 w-6" />
               <span className="sr-only">Toggle navigation menu</span>
             </Button>
           </SheetTrigger>
-          <SheetContent side="left">
+          <SheetContent side="left" className="bg-primary text-primary-foreground">
             <div className="flex flex-col gap-6 p-6">
               <Link href="/" className="flex items-center gap-2 font-bold text-xl">
-                <Sparkles className="h-6 w-6 text-primary" />
+                <Sparkles className="h-6 w-6" />
                 <span>Home Clean</span>
               </Link>
               <nav className="flex flex-col gap-4">
@@ -87,7 +87,7 @@ export default function Header() {
                     key={link.href}
                     href={link.href}
                     onClick={(e) => handleScrollTo(e, link.href)}
-                    className="text-lg font-medium text-foreground/80 transition-colors hover:text-primary"
+                    className="text-lg font-medium text-primary-foreground/80 transition-colors hover:text-primary-foreground"
                   >
                     {link.label}
                   </Link>
@@ -95,17 +95,17 @@ export default function Header() {
               </nav>
               <div className="border-t pt-6 flex flex-col gap-4">
                 <Link href="#">
-                    <Button className="w-full">Iniciar Sesión</Button>
+                    <Button className="w-full bg-primary-foreground text-primary hover:bg-primary-foreground/90">Iniciar Sesión</Button>
                 </Link>
                 <div className="flex justify-center gap-6">
                     <Link href="#" aria-label="Facebook">
-                        <Facebook className="h-6 w-6 text-foreground/80 hover:text-primary" />
+                        <Facebook className="h-6 w-6 text-primary-foreground/80 hover:text-primary-foreground" />
                     </Link>
                     <Link href="#" aria-label="Instagram">
-                        <Instagram className="h-6 w-6 text-foreground/80 hover:text-primary" />
+                        <Instagram className="h-6 w-6 text-primary-foreground/80 hover:text-primary-foreground" />
                     </Link>
                     <Link href="#" aria-label="WhatsApp">
-                        <MessageSquare className="h-6 w-6 text-foreground/80 hover:text-primary" />
+                        <MessageSquare className="h-6 w-6 text-primary-foreground/80 hover:text-primary-foreground" />
                     </Link>
                 </div>
               </div>
