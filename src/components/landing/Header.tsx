@@ -17,6 +17,9 @@ const navLinks = [
 
 export default function Header() {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const whatsappNumber = "8296919556";
+  const message = encodeURIComponent("¡Hola! Vengo desde su página web y estoy interesado en sus productos.");
+  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
 
   return (
     <header
@@ -56,7 +59,7 @@ export default function Header() {
               <Link href="#" aria-label="Instagram" className="text-primary-foreground hover:opacity-80">
                 <Image src="/images/ig.png" alt="Instagram" width={24} height={24} className="hover:opacity-80" />
               </Link>
-              <Link href="https://wa.me/18296919556" target="_blank" aria-label="WhatsApp" className="text-primary-foreground hover:opacity-80">
+              <Link href={whatsappUrl} target="_blank" aria-label="WhatsApp" className="text-primary-foreground hover:opacity-80">
                 <Image src="/images/wa.png" alt="WhatsApp" width={24} height={24} className="hover:opacity-80" />
               </Link>
           </div>
@@ -102,7 +105,7 @@ export default function Header() {
                     <Link href="#" aria-label="Instagram">
                        <Image src="/images/ig.png" alt="Instagram" width={24} height={24} />
                     </Link>
-                    <Link href="https://wa.me/18296919556" target="_blank" aria-label="WhatsApp">
+                    <Link href={whatsappUrl} target="_blank" aria-label="WhatsApp">
                         <Image src="/images/wa.png" alt="WhatsApp" width={24} height={24} />
                     </Link>
                 </div>

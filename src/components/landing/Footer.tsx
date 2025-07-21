@@ -17,6 +17,10 @@ const footerLinks = {
 };
 
 export default function Footer() {
+  const whatsappNumber = "8296919556";
+  const message = encodeURIComponent("¡Hola! Vengo desde su página web y estoy interesado en sus productos.");
+  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
+
   return (
     <footer className="bg-gray-800 text-white">
       <div className="container mx-auto px-4 md:px-6 py-12">
@@ -67,7 +71,7 @@ export default function Footer() {
               <Link href="#" aria-label="Instagram">
                 <Image src="/images/ig.png" alt="Instagram" width={24} height={24} className="hover:opacity-80" />
               </Link>
-              <Link href="https://wa.me/18296919556" target="_blank" aria-label="WhatsApp">
+              <Link href={whatsappUrl} target="_blank" aria-label="WhatsApp">
                 <Image src="/images/wa.png" alt="WhatsApp" width={24} height={24} className="hover:opacity-80" />
               </Link>
             </div>

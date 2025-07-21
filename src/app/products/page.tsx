@@ -42,7 +42,7 @@ const products = [
 ];
 
 export default function ProductsPage() {
-  const whatsappNumber = "18296919556"; // Country code + number
+  const whatsappNumber = "8296919556"; // Country code + number
 
   return (
     <div className="bg-white pt-20">
@@ -57,7 +57,7 @@ export default function ProductsPage() {
         </div>
         <div className="space-y-16">
           {products.map((product, index) => {
-            const message = encodeURIComponent(`¡Hola! Quiero ordenar ${product.name}.`);
+            const message = encodeURIComponent(`¡Hola! Vengo desde su página web. Quiero ordenar ${product.name}.`);
             const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
 
             return (

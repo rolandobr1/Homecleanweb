@@ -65,7 +65,7 @@ const products = [
 export default function ProductsSection() {
     const [visibleProducts, setVisibleProducts] = useState<Record<number, boolean>>({});
     const productRefs = useRef<(HTMLDivElement | null)[]>([]);
-    const whatsappNumber = "18296919556";
+    const whatsappNumber = "8296919556";
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -111,7 +111,7 @@ export default function ProductsSection() {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {products.map((product, index) => {
-                        const message = encodeURIComponent(`¡Hola! Quiero ordenar ${product.name}.`);
+                        const message = encodeURIComponent(`¡Hola! Vengo desde su página web. Quiero ordenar ${product.name}.`);
                         const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
                         return (
                             <div

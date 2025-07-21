@@ -36,6 +36,10 @@ const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
 
 
 export default function ContactSection() {
+  const whatsappNumber = "8296919556";
+  const message = encodeURIComponent("¡Hola! Vengo desde su página web y estoy interesado en sus productos.");
+  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
+
   return (
     <section id="contact" className="py-16 sm:py-24">
       <div className="container mx-auto px-4 md:px-6">
@@ -65,7 +69,7 @@ export default function ContactSection() {
                <WhatsAppIcon className="h-6 w-6 text-primary mt-1" />
               <div>
                 <h4 className="font-semibold">WhatsApp</h4>
-                <Link href="https://wa.me/18296919556" target="_blank" className="text-primary hover:underline">
+                <Link href={whatsappUrl} target="_blank" className="text-primary hover:underline">
                   (829) 691-9556
                 </Link>
               </div>
