@@ -125,16 +125,16 @@ export default function ProductsSection() {
                                     />
                                 </div>
                                 <div className="p-6">
-                                    <h3 className="text-xl font-headline font-semibold tracking-tight">{product.name}</h3>
+                                    <h3 className="text-xl font-headline font-semibold tracking-tight text-primary">{product.name}</h3>
                                     <p className="mt-2 h-12 text-sm text-muted-foreground">{product.description}</p>
                                     <div className="mt-4 flex flex-wrap gap-2">
                                         {product.sizes.map((size) => (
-                                            <Badge key={size} variant="secondary">{size}</Badge>
+                                            <Badge key={size} variant="outline" className="bg-blue-100 text-blue-800 border-blue-200">{size}</Badge>
                                         ))}
                                     </div>
                                     <div className="mt-4 flex flex-wrap gap-2">
                                         {product.features.map((feature) => (
-                                            <Badge key={feature} variant="outline" className="text-accent-foreground bg-accent/20 border-accent/50">{feature}</Badge>
+                                            <Badge key={feature} variant="outline" className="bg-green-100 text-green-800 border-green-200">{feature}</Badge>
                                         ))}
                                     </div>
                                 </div>
