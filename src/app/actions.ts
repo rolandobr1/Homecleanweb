@@ -25,7 +25,7 @@ export async function sendContactEmail(formData: z.infer<typeof contactFormSchem
   try {
     const data = await resend.emails.send({
       from: 'Web Contacto <onboarding@resend.dev>',
-      to: ['contacto@homeclean.com'],
+      to: ['valdezrolando93@gmail.com'],
       subject: `Nuevo mensaje de ${fullName} desde la web`,
       reply_to: email,
       html: `
