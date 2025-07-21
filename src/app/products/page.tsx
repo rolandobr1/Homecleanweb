@@ -1,5 +1,8 @@
 
 import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { MessageSquare } from "lucide-react";
 
 const products = [
   {
@@ -40,6 +43,8 @@ const products = [
 ];
 
 export default function ProductsPage() {
+  const whatsappNumber = "18296919556"; // Country code + number
+
   return (
     <div className="bg-white pt-20">
       <section className="container mx-auto py-16 sm:py-24 px-4 md:px-6">
@@ -52,30 +57,43 @@ export default function ProductsPage() {
             </p>
         </div>
         <div className="space-y-16">
-          {products.map((product, index) => (
-            <div 
-              key={product.name} 
-              id={product.id}
-              className={`flex flex-col md:flex-row items-center gap-8 md:gap-12 scroll-mt-24 ${index % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}
-            >
-              <div className="md:w-1/2 flex justify-center">
-                <Image
-                  src={product.image}
-                  alt={product.name}
-                  width={500}
-                  height={500}
-                  className="rounded-lg shadow-2xl object-contain max-h-[400px]"
-                  data-ai-hint={product.aiHint}
-                />
+          {products.map((product, index) => {
+            const message = encodeURIComponent(`¡Hola! Quiero ordenar ${product.name}.`);
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
+
+            return (
+              <div 
+                key={product.name} 
+                id={product.id}
+                className={`flex flex-col md:flex-row items-center gap-8 md:gap-12 scroll-mt-24 ${index % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}
+              >
+                <div className="md:w-1/2 flex justify-center">
+                  <Image
+                    src={product.image}
+                    alt={product.name}
+                    width={500}
+                    height={500}
+                    className="rounded-lg shadow-2xl object-contain max-h-[400px]"
+                    data-ai-hint={product.aiHint}
+                  />
+                </div>
+                <div className="md:w-1/2">
+                  <h3 className="text-3xl font-bold font-headline text-primary">{product.name}</h3>
+                  <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
+                    {product.description}
+                  </p>
+                  <div className="mt-6">
+                    <Button asChild className="bg-green-500 hover:bg-green-600 text-white">
+                      <Link href={whatsappUrl} target="_blank">
+                        <MessageSquare className="mr-2 h-5 w-5" />
+                        Ordenar por WhatsApp
+                      </Link>
+                    </Button>
+                  </div>
+                </div>
               </div>
-              <div className="md:w-1/2">
-                <h3 className="text-3xl font-bold font-headline text-primary">{product.name}</h3>
-                <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
-                  {product.description}
-                </p>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
     </div>
