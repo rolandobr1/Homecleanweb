@@ -49,7 +49,7 @@ export default function Header() {
         </nav>
 
         <div className="hidden md:flex items-center gap-4">
-          <Link href="#">
+          <Link href="https://homecleanrd.netlify.app" target="_blank">
             <Button variant="ghost" className="text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground">Iniciar Sesión</Button>
           </Link>
           <div className="flex items-center gap-4">
@@ -95,7 +95,7 @@ export default function Header() {
                 ))}
               </nav>
               <div className="border-t pt-6 flex flex-col gap-4">
-                <Link href="#">
+                <Link href="https://homecleanrd.netlify.app" target="_blank">
                     <Button className="w-full">Iniciar Sesión</Button>
                 </Link>
                 <div className="flex justify-center gap-6">
