@@ -55,123 +55,94 @@ const products = [
   },
 ];
 
-function useIntersectionObserver(options: IntersectionObserverInit) {
-    const [entry, setEntry] = useState<IntersectionObserverEntry>();
-    const [node, setNode] = useState<HTMLElement | null>(null);
-
-    const observer = useRef<IntersectionObserver | null>(null);
+export default function ProductsSection() {
+    const [visibleProducts, setVisibleProducts] = useState<Record<number, boolean>>({});
+    const productRefs = useRef<(HTMLDivElement | null)[]>([]);
 
     useEffect(() => {
-        if (observer.current) observer.current.disconnect();
-
-        observer.current = new window.IntersectionObserver(([entry]) => {
-            if (entry.isIntersecting) {
-                setEntry(entry);
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        const index = parseInt(entry.target.getAttribute('data-index') || '0', 10);
+                        setVisibleProducts((prev) => ({ ...prev, [index]: true }));
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            {
+                threshold: 0.1,
             }
-        }, options);
+        );
 
-        const { current: currentObserver } = observer;
-
-        if (node) currentObserver.observe(node);
-
-        return () => currentObserver.disconnect();
-    }, [node, options]);
-
-    return [node, setNode, entry] as const;
-}
-
-export default function ProductsSection() {
-  const [targetRef, setTargetRef] = useState<(HTMLElement | null)[]>([]);
-  const [visibleProducts, setVisibleProducts] = useState<Record<number, boolean>>({});
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const index = parseInt(entry.target.getAttribute('data-index') || '0', 10);
-            setVisibleProducts((prev) => ({ ...prev, [index]: true }));
-            observer.unobserve(entry.target);
-          }
+        productRefs.current.forEach((ref) => {
+            if (ref) {
+                observer.observe(ref);
+            }
         });
-      },
-      {
-        threshold: 0.1,
-      }
-    );
 
-    targetRef.forEach((ref) => {
-      if (ref) {
-        observer.observe(ref);
-      }
-    });
+        return () => {
+            productRefs.current.forEach((ref) => {
+                if (ref) {
+                    observer.unobserve(ref);
+                }
+            });
+        };
+    }, []);
 
-    return () => {
-      targetRef.forEach((ref) => {
-        if (ref) {
-          observer.unobserve(ref);
-        }
-      });
-    };
-  }, [targetRef]);
-
-  return (
-    <section id="products" className="py-16 sm:py-24 bg-white">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl font-headline">
-            Nuestros Productos
-          </h2>
-          <p className="mt-4 max-w-2xl mx-auto text-muted-foreground md:text-xl">
-            Calidad premium para cada rincón de tu hogar.
-          </p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {products.map((product, index) => (
-            <div
-              key={product.name}
-              ref={(el) => setTargetRef((prev) => {
-                const newRefs = [...prev];
-                newRefs[index] = el;
-                return newRefs;
-              })}
-              data-index={index}
-              className={cn(
-                "transition-all duration-700 ease-out transform opacity-0 translate-y-5",
-                visibleProducts[index] && "opacity-100 translate-y-0"
-              )}
-              style={{ transitionDelay: `${index * 100}ms` }}
-            >
-              <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 h-full">
-                <CardHeader className="p-0">
-                  <Image
-                    src={product.image}
-                    alt={product.name}
-                    width={400}
-                    height={400}
-                    className="w-full h-auto object-cover"
-                    data-ai-hint={product.aiHint}
-                  />
-                </CardHeader>
-                <CardContent className="p-6">
-                  <CardTitle className="text-xl font-headline">{product.name}</CardTitle>
-                  <CardDescription className="mt-2 h-12">{product.description}</CardDescription>
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {product.sizes.map((size) => (
-                      <Badge key={size} variant="secondary">{size}</Badge>
+    return (
+        <section id="products" className="py-16 sm:py-24 bg-white">
+            <div className="container mx-auto px-4 md:px-6">
+                <div className="text-center mb-12">
+                    <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl font-headline">
+                        Nuestros Productos
+                    </h2>
+                    <p className="mt-4 max-w-2xl mx-auto text-muted-foreground md:text-xl">
+                        Calidad premium para cada rincón de tu hogar.
+                    </p>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {products.map((product, index) => (
+                        <div
+                            key={product.name}
+                            ref={(el) => (productRefs.current[index] = el)}
+                            data-index={index}
+                            className={cn(
+                                "transition-all duration-700 ease-out transform opacity-0 translate-y-5",
+                                visibleProducts[index] && "opacity-100 translate-y-0"
+                            )}
+                            style={{ transitionDelay: `${index * 100}ms` }}
+                        >
+                            <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 h-full">
+                                <CardHeader className="p-0">
+                                    <Image
+                                        src={product.image}
+                                        alt={product.name}
+                                        width={400}
+                                        height={400}
+                                        className="w-full h-auto object-cover"
+                                        data-ai-hint={product.aiHint}
+                                    />
+                                </CardHeader>
+                                <CardContent className="p-6">
+                                    <CardTitle className="text-xl font-headline">{product.name}</CardTitle>
+                                    <CardDescription className="mt-2 h-12">{product.description}</CardDescription>
+                                    <div className="mt-4 flex flex-wrap gap-2">
+                                        {product.sizes.map((size) => (
+                                            <Badge key={size} variant="secondary">{size}</Badge>
+                                        ))}
+                                    </div>
+                                    <div className="mt-4 flex flex-wrap gap-2">
+                                        {product.features.map((feature) => (
+                                            <Badge key={feature} variant="outline" className="text-accent-foreground bg-accent/20 border-accent/50">{feature}</Badge>
+                                        ))}
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        </div>
                     ))}
-                  </div>
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {product.features.map((feature) => (
-                      <Badge key={feature} variant="outline" className="text-accent-foreground bg-accent/20 border-accent/50">{feature}</Badge>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
+                </div>
             </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
+        </section>
+    );
 }
