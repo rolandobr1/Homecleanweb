@@ -1,13 +1,14 @@
 
 import Link from "next/link";
-import { Sparkles, Facebook, Instagram, MessageSquare } from "lucide-react";
+import Image from "next/image";
+import { Facebook, Instagram, MessageSquare } from "lucide-react";
 
 const footerLinks = {
   products: [
-    { label: "Jabón de Cuaba", href: "/products" },
-    { label: "Lavaplatos", href: "/products" },
-    { label: "Jabón Neutro", href: "/products" },
-    { label: "Desinfectantes", href: "/products" },
+    { label: "Jabón de Cuaba", href: "/products#jabon-de-cuaba" },
+    { label: "Lavaplatos", href: "/products#lavaplatos-liquido" },
+    { label: "Jabón Neutro", href: "/products#jabon-neutro" },
+    { label: "Desinfectantes", href: "/products#desinfectante-frutos-rojos" },
   ],
   company: [
     { label: "Sobre Nosotros", href: "/#about" },
@@ -22,9 +23,13 @@ export default function Footer() {
       <div className="container mx-auto px-4 md:px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-1">
-            <Link href="/" className="flex items-center gap-2 font-bold text-xl text-white">
-              <Sparkles className="h-6 w-6 text-blue-400" />
-              <span>Home Clean</span>
+            <Link href="/">
+              <Image 
+                src="/images/logoweb.png" 
+                alt="Home Clean Logo" 
+                width={140} 
+                height={40} 
+              />
             </Link>
             <p className="mt-4 text-gray-300 text-sm">
               Limpieza y frescura para un hogar feliz.
@@ -57,14 +62,14 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold mb-4 text-blue-400">Síguenos</h4>
             <div className="flex items-center gap-4">
-              <Link href="#" aria-label="Facebook" className="text-gray-300 hover:text-blue-400">
-                <Facebook className="h-6 w-6" />
+               <Link href="#" aria-label="Facebook">
+                <Facebook className="h-6 w-6 text-gray-300 hover:text-blue-400" />
               </Link>
-              <Link href="#" aria-label="Instagram" className="text-gray-300 hover:text-blue-400">
-                <Instagram className="h-6 w-6" />
+              <Link href="#" aria-label="Instagram">
+                <Image src="/images/ig.png" alt="Instagram" width={24} height={24} className="hover:opacity-80" />
               </Link>
-              <Link href="https://wa.me/18095551234" target="_blank" aria-label="WhatsApp" className="text-gray-300 hover:text-blue-400">
-                <MessageSquare className="h-6 w-6" />
+              <Link href="https://wa.me/18095551234" target="_blank" aria-label="WhatsApp">
+                <Image src="/images/wa.png" alt="WhatsApp" width={24} height={24} className="hover:opacity-80" />
               </Link>
             </div>
           </div>
