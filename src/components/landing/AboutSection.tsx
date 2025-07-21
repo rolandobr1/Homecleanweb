@@ -18,12 +18,12 @@ export default function AboutSection() {
           </div>
           <div className="rounded-lg overflow-hidden shadow-xl">
             <Image
-              src="https://placehold.co/600x450.png"
-              alt="About Home Clean"
+              src="/images/nosotros.png"
+              alt="Equipo de Home Clean"
               width={600}
               height={450}
               className="w-full h-auto object-cover"
-              data-ai-hint="factory team"
+              data-ai-hint="company team"
             />
           </div>
         </div>
