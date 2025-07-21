@@ -15,7 +15,7 @@ export default function HeroSection() {
       className="relative h-[90vh] min-h-[600px] w-full"
     >
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          className="absolute inset-0 bg-cover bg-left bg-no-repeat"
           style={{ backgroundImage: "url('/images/cuabaenhabitat.png')" }}
         >
             <div className="absolute inset-0 bg-black/50 z-10" />
