@@ -7,7 +7,7 @@ export default function EmprendePage() {
       <section className="relative py-16 sm:py-24 px-4 md:px-6 flex items-center justify-center min-h-[50vh] bg-gray-50">
         <div className="absolute inset-0">
            <Image 
-             src="https://placehold.co/1920x1080.png"
+             src="/images/emprende.png"
              alt="Fondo de emprendimiento"
              layout="fill"
              objectFit="cover"

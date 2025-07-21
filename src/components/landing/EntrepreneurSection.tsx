@@ -64,7 +64,7 @@ export default function EntrepreneurSection() {
                     </div>
                     <div className="order-1 md:order-2 rounded-lg overflow-hidden shadow-xl">
                         <Image
-                            src="https://placehold.co/600x450.png"
+                            src="/images/emprende.png"
                             alt="Emprende con Home Clean"
                             width={600}
                             height={450}
