@@ -62,7 +62,7 @@ export default function Footer() {
               <Link href="#" aria-label="Instagram">
                 <Instagram className="h-6 w-6 text-muted-foreground hover:text-primary" />
               </Link>
-              <Link href="#" aria-label="WhatsApp">
+              <Link href="https://wa.me/18095551234" target="_blank" aria-label="WhatsApp">
                 <MessageSquare className="h-6 w-6 text-muted-foreground hover:text-primary" />
               </Link>
             </div>
