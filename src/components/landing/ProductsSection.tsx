@@ -1,3 +1,6 @@
+"use client";
+
+import React, { useEffect, useRef, useState } from 'react';
 import Image from "next/image";
 import {
   Card,
@@ -7,6 +10,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { cn } from '@/lib/utils';
 
 const products = [
   {
@@ -51,7 +55,66 @@ const products = [
   },
 ];
 
+function useIntersectionObserver(options: IntersectionObserverInit) {
+    const [entry, setEntry] = useState<IntersectionObserverEntry>();
+    const [node, setNode] = useState<HTMLElement | null>(null);
+
+    const observer = useRef<IntersectionObserver | null>(null);
+
+    useEffect(() => {
+        if (observer.current) observer.current.disconnect();
+
+        observer.current = new window.IntersectionObserver(([entry]) => {
+            if (entry.isIntersecting) {
+                setEntry(entry);
+            }
+        }, options);
+
+        const { current: currentObserver } = observer;
+
+        if (node) currentObserver.observe(node);
+
+        return () => currentObserver.disconnect();
+    }, [node, options]);
+
+    return [node, setNode, entry] as const;
+}
+
 export default function ProductsSection() {
+  const [targetRef, setTargetRef] = useState<(HTMLElement | null)[]>([]);
+  const [visibleProducts, setVisibleProducts] = useState<Record<number, boolean>>({});
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = parseInt(entry.target.getAttribute('data-index') || '0', 10);
+            setVisibleProducts((prev) => ({ ...prev, [index]: true }));
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+      }
+    );
+
+    targetRef.forEach((ref) => {
+      if (ref) {
+        observer.observe(ref);
+      }
+    });
+
+    return () => {
+      targetRef.forEach((ref) => {
+        if (ref) {
+          observer.unobserve(ref);
+        }
+      });
+    };
+  }, [targetRef]);
+
   return (
     <section id="products" className="py-16 sm:py-24 bg-white">
       <div className="container mx-auto px-4 md:px-6">
@@ -64,33 +127,48 @@ export default function ProductsSection() {
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {products.map((product) => (
-            <Card key={product.name} className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <CardHeader className="p-0">
-                <Image
-                  src={product.image}
-                  alt={product.name}
-                  width={400}
-                  height={400}
-                  className="w-full h-auto object-cover"
-                  data-ai-hint={product.aiHint}
-                />
-              </CardHeader>
-              <CardContent className="p-6">
-                <CardTitle className="text-xl font-headline">{product.name}</CardTitle>
-                <CardDescription className="mt-2 h-12">{product.description}</CardDescription>
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {product.sizes.map((size) => (
-                    <Badge key={size} variant="secondary">{size}</Badge>
-                  ))}
-                </div>
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {product.features.map((feature) => (
-                    <Badge key={feature} variant="outline" className="text-accent-foreground bg-accent/20 border-accent/50">{feature}</Badge>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+          {products.map((product, index) => (
+            <div
+              key={product.name}
+              ref={(el) => setTargetRef((prev) => {
+                const newRefs = [...prev];
+                newRefs[index] = el;
+                return newRefs;
+              })}
+              data-index={index}
+              className={cn(
+                "transition-all duration-700 ease-out transform opacity-0 translate-y-5",
+                visibleProducts[index] && "opacity-100 translate-y-0"
+              )}
+              style={{ transitionDelay: `${index * 100}ms` }}
+            >
+              <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 h-full">
+                <CardHeader className="p-0">
+                  <Image
+                    src={product.image}
+                    alt={product.name}
+                    width={400}
+                    height={400}
+                    className="w-full h-auto object-cover"
+                    data-ai-hint={product.aiHint}
+                  />
+                </CardHeader>
+                <CardContent className="p-6">
+                  <CardTitle className="text-xl font-headline">{product.name}</CardTitle>
+                  <CardDescription className="mt-2 h-12">{product.description}</CardDescription>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {product.sizes.map((size) => (
+                      <Badge key={size} variant="secondary">{size}</Badge>
+                    ))}
+                  </div>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {product.features.map((feature) => (
+                      <Badge key={feature} variant="outline" className="text-accent-foreground bg-accent/20 border-accent/50">{feature}</Badge>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
           ))}
         </div>
       </div>
