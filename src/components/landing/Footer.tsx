@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Sparkles, Facebook, Instagram, MessageSquare } from "lucide-react";
+import { Sparkles } from "lucide-react";
+import Image from "next/image";
 
 const footerLinks = {
   products: [
@@ -57,13 +58,13 @@ export default function Footer() {
             <h4 className="font-semibold mb-4 text-blue-400">Síguenos</h4>
             <div className="flex items-center gap-4">
               <Link href="#" aria-label="Facebook">
-                <Facebook className="h-6 w-6 text-gray-300 hover:text-blue-400" />
+                <Image src="/images/face.png" alt="Facebook" width={24} height={24} className="hover:opacity-80" />
               </Link>
               <Link href="#" aria-label="Instagram">
-                <Instagram className="h-6 w-6 text-gray-300 hover:text-blue-400" />
+                <Image src="/images/ig.png" alt="Instagram" width={24} height={24} className="hover:opacity-80" />
               </Link>
               <Link href="https://wa.me/18095551234" target="_blank" aria-label="WhatsApp">
-                <MessageSquare className="h-6 w-6 text-gray-300 hover:text-blue-400" />
+                <Image src="/images/wa.png" alt="WhatsApp" width={24} height={24} className="hover:opacity-80" />
               </Link>
             </div>
           </div>
