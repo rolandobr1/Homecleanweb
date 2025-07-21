@@ -6,7 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, Facebook, Instagram, MessageSquare } from "lucide-react";
+import { Menu, Facebook } from "lucide-react";
 
 const navLinks = [
   { href: "/", label: "Inicio" },
@@ -17,23 +17,6 @@ const navLinks = [
 
 export default function Header() {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    if (href.startsWith('/#')) {
-        e.preventDefault();
-        const targetId = href.replace('/#', '');
-        const targetElement = document.getElementById(targetId);
-        if (targetElement) {
-            window.scrollTo({
-                top: targetElement.offsetTop - 80, // Adjust for fixed header
-                behavior: 'smooth',
-            });
-        } else {
-             window.location.href = href;
-        }
-    }
-    setMobileMenuOpen(false);
-  };
 
   return (
     <header
@@ -54,7 +37,7 @@ export default function Header() {
             <Link
               key={link.href}
               href={link.href}
-              onClick={(e) => handleScrollTo(e, link.href)}
+              onClick={() => setMobileMenuOpen(false)}
               className="text-sm font-medium text-primary-foreground/80 transition-colors hover:text-primary-foreground"
             >
               {link.label}
@@ -88,7 +71,7 @@ export default function Header() {
           </SheetTrigger>
           <SheetContent side="left" className="bg-card text-card-foreground">
             <div className="flex flex-col gap-6 p-6">
-              <Link href="/">
+              <Link href="/" onClick={() => setMobileMenuOpen(false)}>
                 <Image 
                   src="/images/logoweb.png" 
                   alt="Home Clean Logo" 
@@ -101,7 +84,7 @@ export default function Header() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    onClick={(e) => handleScrollTo(e, link.href)}
+                    onClick={() => setMobileMenuOpen(false)}
                     className="text-lg font-medium text-muted-foreground transition-colors hover:text-primary"
                   >
                     {link.label}
