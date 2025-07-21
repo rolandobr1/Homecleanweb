@@ -18,7 +18,7 @@ const slides = [
     subtitle: "Descubre la magia de nuestros productos de limpieza, diseñados para brindarte resultados extraordinarios y un frescor duradero.",
     buttonText: "Ver Nuestros Productos",
     buttonLink: "/products",
-    imageUrl: "/images/cuabaenhabitat.png",
+    imageUrl: "/images/slide1.png",
     dataAiHint: "cleaning products",
   },
   {
@@ -26,7 +26,7 @@ const slides = [
     subtitle: "Nuestro lavaplatos líquido elimina la grasa más difícil, dejando tu vajilla reluciente y tus manos suaves.",
     buttonText: "Descubre el Lavaplatos",
     buttonLink: "/products#lavaplatos-liquido",
-    imageUrl: "https://placehold.co/1920x1080.png",
+    imageUrl: "/images/slide2.png",
     dataAiHint: "clean kitchen sink",
   },
   {
@@ -34,7 +34,7 @@ const slides = [
     subtitle: "Con nuestros desinfectantes, tu hogar no solo olerá increíble, sino que estará protegido y seguro para tu familia.",
     buttonText: "Explora Desinfectantes",
     buttonLink: "/products#desinfectante-frutos-rojos",
-    imageUrl: "https://placehold.co/1920x1080.png",
+    imageUrl: "/images/slide3.png",
     dataAiHint: "clean living room",
   },
 ];
