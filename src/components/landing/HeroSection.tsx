@@ -21,10 +21,10 @@ export default function HeroSection() {
             <div className="absolute inset-0 bg-black/50 z-10" />
         </div>
         <div className="relative z-20 flex h-full flex-col items-center justify-center text-center text-white px-4">
-            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl font-headline">
+            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl font-headline animate-slide-in-down">
             Tu Hogar, Impecablemente Limpio
             </h1>
-            <p className="mt-4 max-w-[700px] text-lg text-gray-200 md:text-xl">
+            <p className="mt-4 max-w-[700px] text-lg text-gray-200 md:text-xl animate-slide-in-up">
             Descubre la magia de nuestros productos de limpieza, diseñados para brindarte resultados extraordinarios y un frescor duradero.
             </p>
             <div className="mt-8">
