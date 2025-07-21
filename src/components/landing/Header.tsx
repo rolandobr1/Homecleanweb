@@ -1,12 +1,12 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import {
   Menu,
-  Sparkles,
   Facebook,
   Instagram,
   MessageSquare,
@@ -33,9 +33,14 @@ export default function Header() {
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-primary text-primary-foreground shadow-md"
     >
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
-        <Link href="/" className="flex items-center gap-2 font-bold text-xl">
-          <Sparkles className="h-6 w-6" />
-          <span>Home Clean</span>
+        <Link href="/">
+          <Image 
+            src="/logoweb.png" 
+            alt="Home Clean Logo" 
+            width={140} 
+            height={40} 
+            className="text-white"
+          />
         </Link>
 
         <nav className="hidden md:flex items-center gap-6">
@@ -77,9 +82,13 @@ export default function Header() {
           </SheetTrigger>
           <SheetContent side="left" className="bg-primary text-primary-foreground">
             <div className="flex flex-col gap-6 p-6">
-              <Link href="/" className="flex items-center gap-2 font-bold text-xl">
-                <Sparkles className="h-6 w-6" />
-                <span>Home Clean</span>
+              <Link href="/">
+                <Image 
+                  src="/logoweb.png" 
+                  alt="Home Clean Logo" 
+                  width={140} 
+                  height={40}
+                />
               </Link>
               <nav className="flex flex-col gap-4">
                 {navLinks.map((link) => (
