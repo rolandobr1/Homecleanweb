@@ -12,15 +12,15 @@ export default function HeroSection() {
   return (
     <section 
       id="home" 
-      className="relative h-[90vh] min-h-[600px] w-full"
+      className="relative h-[calc(90vh-5rem)] min-h-[600px] w-full"
     >
         <div 
           className="absolute inset-0 bg-cover bg-left bg-no-repeat"
           style={{ backgroundImage: "url('/images/cuabaenhabitat.png')" }}
         >
-            <div className="absolute inset-0 bg-black/50 z-10" />
+            <div className="absolute inset-0 bg-black/50" />
         </div>
-        <div className="relative z-20 flex h-full flex-col items-center justify-center text-center text-white px-4">
+        <div className="relative flex h-full flex-col items-center justify-center text-center text-white px-4">
             <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl font-headline animate-slide-in-down">
             Tu Hogar, Impecablemente Limpio
             </h1>
