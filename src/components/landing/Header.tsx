@@ -39,7 +39,6 @@ export default function Header() {
             alt="Home Clean Logo" 
             width={140} 
             height={40} 
-            className="text-white"
           />
         </Link>
 
