@@ -13,12 +13,13 @@ export default function HeroSection() {
   return (
     <section id="home" className="relative h-[90vh] min-h-[600px] w-full">
         <Image
-          src="https://placehold.co/1920x1080.png"
+          src="/cuabaenhabitat.png"
           alt="Clean home background"
           layout="fill"
           objectFit="cover"
           className="z-0"
           data-ai-hint="clean home"
+          priority
         />
         <div className="absolute inset-0 bg-black/50 z-10" />
         <div className="relative z-20 flex h-full flex-col items-center justify-center text-center text-white px-4">
