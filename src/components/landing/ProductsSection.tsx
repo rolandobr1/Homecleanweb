@@ -12,6 +12,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
+import { Button } from '@/components/ui/button';
 
 const products = [
   {
@@ -64,6 +65,7 @@ const products = [
 export default function ProductsSection() {
     const [visibleProducts, setVisibleProducts] = useState<Record<number, boolean>>({});
     const productRefs = useRef<(HTMLDivElement | null)[]>([]);
+    const whatsappNumber = "18296919556";
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -108,48 +110,61 @@ export default function ProductsSection() {
                     </p>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {products.map((product, index) => (
-                        <Link key={product.id} href={`/products#${product.id}`} className="block h-full">
+                    {products.map((product, index) => {
+                        const message = encodeURIComponent(`¡Hola! Quiero ordenar ${product.name}.`);
+                        const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
+                        return (
                             <div
+                                key={product.id}
                                 ref={(el) => (productRefs.current[index] = el)}
                                 data-index={index}
                                 className={cn(
-                                    "transition-all duration-700 ease-out transform opacity-0 translate-y-5 h-full",
+                                    "transition-all duration-700 ease-out transform opacity-0 translate-y-5 h-full flex flex-col",
                                     visibleProducts[index] && "opacity-100 translate-y-0"
                                 )}
                                 style={{ transitionDelay: `${index * 100}ms` }}
                             >
-                                <div className="product-card-gradient h-full rounded-[20px] overflow-hidden shadow-lg transition-all duration-300 ease-in-out hover:-translate-y-2.5 hover:shadow-2xl flex flex-col">
-                                    <div className="h-[200px] w-full overflow-hidden flex justify-center items-center">
-                                        <Image
-                                            src={product.image}
-                                            alt={product.name}
-                                            width={400}
-                                            height={400}
-                                            className="w-full h-full object-cover"
-                                            data-ai-hint={product.aiHint}
-                                        />
-                                    </div>
+                                <div className="product-card-gradient h-full rounded-[20px] overflow-hidden shadow-lg transition-all duration-300 ease-in-out hover:-translate-y-2.5 hover:shadow-2xl flex flex-col flex-grow">
+                                    <Link href={`/products#${product.id}`} className="block">
+                                        <div className="h-[200px] w-full overflow-hidden flex justify-center items-center">
+                                            <Image
+                                                src={product.image}
+                                                alt={product.name}
+                                                width={400}
+                                                height={400}
+                                                className="w-full h-full object-cover"
+                                                data-ai-hint={product.aiHint}
+                                            />
+                                        </div>
+                                    </Link>
                                     <div className="p-6 flex flex-col flex-grow">
-                                        <h3 className="text-xl font-headline font-semibold tracking-tight text-primary">{product.name}</h3>
-                                        <p className="mt-2 h-12 text-sm text-muted-foreground">{product.description}</p>
-                                        <div className="mt-auto pt-4">
+                                        <Link href={`/products#${product.id}`} className="block">
+                                            <h3 className="text-xl font-headline font-semibold tracking-tight text-primary">{product.name}</h3>
+                                            <p className="mt-2 h-12 text-sm text-muted-foreground">{product.description}</p>
+                                        </Link>
+                                        <div className="mt-auto pt-4 space-y-4">
                                             <div className="flex flex-wrap gap-2">
                                                 {product.sizes.map((size) => (
                                                     <Badge key={size} variant="outline" className="bg-blue-100 text-blue-800 border-blue-200">{size}</Badge>
                                                 ))}
                                             </div>
-                                            <div className="mt-4 flex flex-wrap gap-2">
+                                            <div className="flex flex-wrap gap-2">
                                                 {product.features.map((feature) => (
                                                     <Badge key={feature} variant="outline" className="bg-green-100 text-green-800 border-green-200">{feature}</Badge>
                                                 ))}
                                             </div>
+                                            <Button asChild className="bg-green-500 hover:bg-green-600 text-white w-full mt-4">
+                                                <Link href={whatsappUrl} target="_blank">
+                                                    <Image src="/images/wa.png" alt="WhatsApp" width={20} height={20} className="mr-2" />
+                                                    Ordenar
+                                                </Link>
+                                            </Button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </Link>
-                    ))}
+                        )
+                    })}
                 </div>
             </div>
         </section>

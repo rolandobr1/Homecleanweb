@@ -2,7 +2,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { MessageSquare } from "lucide-react";
 
 const products = [
   {
@@ -85,8 +84,8 @@ export default function ProductsPage() {
                   <div className="mt-6">
                     <Button asChild className="bg-green-500 hover:bg-green-600 text-white">
                       <Link href={whatsappUrl} target="_blank">
-                        <MessageSquare className="mr-2 h-5 w-5" />
-                        Ordenar por WhatsApp
+                        <Image src="/images/wa.png" alt="WhatsApp" width={20} height={20} className="mr-2" />
+                        Ordenar
                       </Link>
                     </Button>
                   </div>
