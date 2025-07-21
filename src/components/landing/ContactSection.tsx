@@ -65,8 +65,8 @@ export default function ContactSection() {
                <WhatsAppIcon className="h-6 w-6 text-primary mt-1" />
               <div>
                 <h4 className="font-semibold">WhatsApp</h4>
-                <Link href="https://wa.me/18095551234" target="_blank" className="text-primary hover:underline">
-                  (809) 555-1234
+                <Link href="https://wa.me/18296919556" target="_blank" className="text-primary hover:underline">
+                  (829) 691-9556
                 </Link>
               </div>
             </div>

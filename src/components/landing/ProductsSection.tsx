@@ -151,6 +151,7 @@ export default function ProductsSection() {
                                             <div className="flex flex-wrap gap-2">
                                                 {product.features.map((feature) => (
                                                     <Badge key={feature} variant="outline" className="bg-green-100 text-green-800 border-green-200">{feature}</Badge>
+
                                                 ))}
                                             </div>
                                             <Button asChild className="bg-green-500 hover:bg-green-600 text-white w-full mt-4">

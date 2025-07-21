@@ -56,7 +56,7 @@ export default function Header() {
               <Link href="#" aria-label="Instagram" className="text-primary-foreground hover:opacity-80">
                 <Image src="/images/ig.png" alt="Instagram" width={24} height={24} className="hover:opacity-80" />
               </Link>
-              <Link href="https://wa.me/18095551234" target="_blank" aria-label="WhatsApp" className="text-primary-foreground hover:opacity-80">
+              <Link href="https://wa.me/18296919556" target="_blank" aria-label="WhatsApp" className="text-primary-foreground hover:opacity-80">
                 <Image src="/images/wa.png" alt="WhatsApp" width={24} height={24} className="hover:opacity-80" />
               </Link>
           </div>
@@ -102,7 +102,7 @@ export default function Header() {
                     <Link href="#" aria-label="Instagram">
                        <Image src="/images/ig.png" alt="Instagram" width={24} height={24} />
                     </Link>
-                    <Link href="https://wa.me/18095551234" target="_blank" aria-label="WhatsApp">
+                    <Link href="https://wa.me/18296919556" target="_blank" aria-label="WhatsApp">
                         <Image src="/images/wa.png" alt="WhatsApp" width={24} height={24} />
                     </Link>
                 </div>
