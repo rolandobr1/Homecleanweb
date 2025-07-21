@@ -15,6 +15,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import { sendContactEmail } from "@/app/actions";
 
 const formSchema = z.object({
   fullName: z.string().min(2, {
@@ -40,15 +41,21 @@ export default function ContactForm() {
     });
 
     async function onSubmit(values: z.infer<typeof formSchema>) {
-        // Simulate form submission
-        console.log(values);
-        await new Promise(resolve => setTimeout(resolve, 1000));
-        
-        toast({
-            title: "¡Mensaje Enviado!",
-            description: "Gracias por contactarnos. Te responderemos pronto.",
-        });
-        form.reset();
+        const result = await sendContactEmail(values);
+
+        if (result.success) {
+            toast({
+                title: "¡Mensaje Enviado!",
+                description: "Gracias por contactarnos. Te responderemos pronto.",
+            });
+            form.reset();
+        } else {
+            toast({
+                variant: "destructive",
+                title: "Error al Enviar",
+                description: result.error || "Hubo un problema al enviar el mensaje.",
+            });
+        }
   }
 
   return (
