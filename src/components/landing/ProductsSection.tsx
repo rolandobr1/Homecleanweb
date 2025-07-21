@@ -113,20 +113,20 @@ export default function ProductsSection() {
                             )}
                             style={{ transitionDelay: `${index * 100}ms` }}
                         >
-                            <Card className="overflow-hidden shadow-lg h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
-                                <CardHeader className="p-0">
+                            <div className="product-card-gradient h-full rounded-[20px] overflow-hidden shadow-lg transition-all duration-300 ease-in-out hover:-translate-y-2.5 hover:shadow-2xl">
+                                <div className="h-[200px] w-full overflow-hidden flex justify-center items-center">
                                     <Image
                                         src={product.image}
                                         alt={product.name}
                                         width={400}
                                         height={400}
-                                        className="w-full h-auto object-cover"
+                                        className="w-full h-full object-cover"
                                         data-ai-hint={product.aiHint}
                                     />
-                                </CardHeader>
-                                <CardContent className="p-6">
-                                    <CardTitle className="text-xl font-headline">{product.name}</CardTitle>
-                                    <CardDescription className="mt-2 h-12">{product.description}</CardDescription>
+                                </div>
+                                <div className="p-6">
+                                    <h3 className="text-xl font-headline font-semibold tracking-tight">{product.name}</h3>
+                                    <p className="mt-2 h-12 text-sm text-muted-foreground">{product.description}</p>
                                     <div className="mt-4 flex flex-wrap gap-2">
                                         {product.sizes.map((size) => (
                                             <Badge key={size} variant="secondary">{size}</Badge>
@@ -137,8 +137,8 @@ export default function ProductsSection() {
                                             <Badge key={feature} variant="outline" className="text-accent-foreground bg-accent/20 border-accent/50">{feature}</Badge>
                                         ))}
                                     </div>
-                                </CardContent>
-                            </Card>
+                                </div>
+                            </div>
                         </div>
                     ))}
                 </div>
