@@ -113,7 +113,7 @@ export default function ProductsSection() {
                             )}
                             style={{ transitionDelay: `${index * 100}ms` }}
                         >
-                            <div className="product-card-gradient h-full rounded-[20px] overflow-hidden shadow-lg transition-all duration-300 ease-in-out hover:-translate-y-2.5 hover:shadow-2xl">
+                            <div className="product-card-gradient h-full rounded-[20px] overflow-hidden shadow-lg transition-all duration-300 ease-in-out hover:-translate-y-2.5 hover:shadow-2xl flex flex-col">
                                 <div className="h-[200px] w-full overflow-hidden flex justify-center items-center">
                                     <Image
                                         src={product.image}
@@ -124,18 +124,20 @@ export default function ProductsSection() {
                                         data-ai-hint={product.aiHint}
                                     />
                                 </div>
-                                <div className="p-6">
+                                <div className="p-6 flex flex-col flex-grow">
                                     <h3 className="text-xl font-headline font-semibold tracking-tight text-primary">{product.name}</h3>
                                     <p className="mt-2 h-12 text-sm text-muted-foreground">{product.description}</p>
-                                    <div className="mt-4 flex flex-wrap gap-2">
-                                        {product.sizes.map((size) => (
-                                            <Badge key={size} variant="outline" className="bg-blue-100 text-blue-800 border-blue-200">{size}</Badge>
-                                        ))}
-                                    </div>
-                                    <div className="mt-4 flex flex-wrap gap-2">
-                                        {product.features.map((feature) => (
-                                            <Badge key={feature} variant="outline" className="bg-green-100 text-green-800 border-green-200">{feature}</Badge>
-                                        ))}
+                                    <div className="mt-auto pt-4">
+                                        <div className="flex flex-wrap gap-2">
+                                            {product.sizes.map((size) => (
+                                                <Badge key={size} variant="outline" className="bg-blue-100 text-blue-800 border-blue-200">{size}</Badge>
+                                            ))}
+                                        </div>
+                                        <div className="mt-4 flex flex-wrap gap-2">
+                                            {product.features.map((feature) => (
+                                                <Badge key={feature} variant="outline" className="bg-green-100 text-green-800 border-green-200">{feature}</Badge>
+                                            ))}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
