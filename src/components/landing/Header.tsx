@@ -6,7 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, Facebook } from "lucide-react";
+import { Menu } from "lucide-react";
 
 const navLinks = [
   { href: "/", label: "Inicio" },
@@ -51,7 +51,7 @@ export default function Header() {
           </Link>
           <div className="flex items-center gap-4">
              <Link href="#" aria-label="Facebook" className="text-primary-foreground hover:opacity-80">
-                <Facebook className="h-5 w-5" />
+                <Image src="/images/face.png" alt="Facebook" width={24} height={24} />
               </Link>
               <Link href="#" aria-label="Instagram" className="text-primary-foreground hover:opacity-80">
                 <Image src="/images/ig.png" alt="Instagram" width={24} height={24} className="hover:opacity-80" />
@@ -97,7 +97,7 @@ export default function Header() {
                 </Link>
                 <div className="flex justify-center gap-6">
                     <Link href="#" aria-label="Facebook">
-                       <Facebook className="h-6 w-6 text-gray-700" />
+                       <Image src="/images/face.png" alt="Facebook" width={24} height={24} />
                     </Link>
                     <Link href="#" aria-label="Instagram">
                        <Image src="/images/ig.png" alt="Instagram" width={24} height={24} />
