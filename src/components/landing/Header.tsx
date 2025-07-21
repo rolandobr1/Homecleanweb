@@ -21,7 +21,16 @@ export default function Header() {
   const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     if (href.startsWith('/#')) {
         e.preventDefault();
-        window.location.href = href;
+        const targetId = href.replace('/#', '');
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+            window.scrollTo({
+                top: targetElement.offsetTop - 80, // Adjust for fixed header
+                behavior: 'smooth',
+            });
+        } else {
+             window.location.href = href;
+        }
     }
     setMobileMenuOpen(false);
   };
@@ -62,10 +71,10 @@ export default function Header() {
                 <Facebook className="h-5 w-5" />
               </Link>
               <Link href="#" aria-label="Instagram" className="text-primary-foreground hover:opacity-80">
-                <Instagram className="h-5 w-5" />
+                <Image src="/images/ig.png" alt="Instagram" width={24} height={24} className="hover:opacity-80" />
               </Link>
               <Link href="https://wa.me/18095551234" target="_blank" aria-label="WhatsApp" className="text-primary-foreground hover:opacity-80">
-                <MessageSquare className="h-5 w-5" />
+                <Image src="/images/wa.png" alt="WhatsApp" width={24} height={24} className="hover:opacity-80" />
               </Link>
           </div>
         </div>
@@ -108,10 +117,10 @@ export default function Header() {
                        <Facebook className="h-6 w-6 text-gray-700" />
                     </Link>
                     <Link href="#" aria-label="Instagram">
-                       <Instagram className="h-6 w-6 text-gray-700" />
+                       <Image src="/images/ig.png" alt="Instagram" width={24} height={24} />
                     </Link>
                     <Link href="https://wa.me/18095551234" target="_blank" aria-label="WhatsApp">
-                        <MessageSquare className="h-6 w-6 text-gray-700" />
+                        <Image src="/images/wa.png" alt="WhatsApp" width={24} height={24} />
                     </Link>
                 </div>
               </div>
