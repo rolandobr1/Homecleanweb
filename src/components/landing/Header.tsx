@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useState } from "react";
@@ -5,21 +6,23 @@ import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, Facebook } from "lucide-react";
+import { Menu, Facebook, Instagram, MessageSquare } from "lucide-react";
 
 const navLinks = [
-  { href: "#home", label: "Inicio" },
-  { href: "#products", label: "Productos" },
-  { href: "#about", label: "Sobre Nosotros" },
-  { href: "#contact", label: "Contacto" },
+  { href: "/", label: "Inicio" },
+  { href: "/products", label: "Productos" },
+  { href: "/#about", label: "Sobre Nosotros" },
+  { href: "/#contact", label: "Contacto" },
 ];
 
 export default function Header() {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault();
-    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+    if (href.startsWith('/#')) {
+        e.preventDefault();
+        window.location.href = href;
+    }
     setMobileMenuOpen(false);
   };
 
@@ -55,15 +58,15 @@ export default function Header() {
             <Button variant="ghost" className="text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground">Iniciar Sesión</Button>
           </Link>
           <div className="flex items-center gap-4">
-            <Link href="#" aria-label="Facebook">
-              <Facebook className="h-5 w-5 opacity-80 hover:opacity-100" />
-            </Link>
-            <Link href="#" aria-label="Instagram">
-              <Image src="/images/ig.png" alt="Instagram" width={20} height={20} className="opacity-80 hover:opacity-100" />
-            </Link>
-            <Link href="https://wa.me/18095551234" target="_blank" aria-label="WhatsApp">
-              <Image src="/images/wa.png" alt="WhatsApp" width={20} height={20} className="opacity-80 hover:opacity-100" />
-            </Link>
+             <Link href="#" aria-label="Facebook" className="text-primary-foreground hover:opacity-80">
+                <Facebook className="h-5 w-5" />
+              </Link>
+              <Link href="#" aria-label="Instagram" className="text-primary-foreground hover:opacity-80">
+                <Instagram className="h-5 w-5" />
+              </Link>
+              <Link href="https://wa.me/18095551234" target="_blank" aria-label="WhatsApp" className="text-primary-foreground hover:opacity-80">
+                <MessageSquare className="h-5 w-5" />
+              </Link>
           </div>
         </div>
 
@@ -105,10 +108,10 @@ export default function Header() {
                        <Facebook className="h-6 w-6 text-gray-700" />
                     </Link>
                     <Link href="#" aria-label="Instagram">
-                       <Image src="/images/ig.png" alt="Instagram" width={24} height={24} />
+                       <Instagram className="h-6 w-6 text-gray-700" />
                     </Link>
                     <Link href="https://wa.me/18095551234" target="_blank" aria-label="WhatsApp">
-                        <Image src="/images/wa.png" alt="WhatsApp" width={24} height={24} />
+                        <MessageSquare className="h-6 w-6 text-gray-700" />
                     </Link>
                 </div>
               </div>

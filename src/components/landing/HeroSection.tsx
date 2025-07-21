@@ -1,13 +1,10 @@
+
 "use client";
 
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 export default function HeroSection() {
-    const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-        e.preventDefault();
-        document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
-    };
 
   return (
     <section 
@@ -15,7 +12,7 @@ export default function HeroSection() {
       className="relative min-h-[600px] w-full pt-20"
     >
         <div 
-          className="absolute inset-0 bg-cover bg-left bg-no-repeat"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: "url('/images/cuabaenhabitat.png')" }}
         >
             <div className="absolute inset-0 bg-black/50" />
@@ -28,9 +25,9 @@ export default function HeroSection() {
             Descubre la magia de nuestros productos de limpieza, diseñados para brindarte resultados extraordinarios y un frescor duradero.
             </p>
             <div className="mt-8">
-            <Link href="#benefits" onClick={(e) => handleScrollTo(e, '#benefits')} passHref>
+            <Link href="/products" passHref>
                 <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
-                    Descubre los Beneficios
+                    Ver Nuestros Productos
                 </Button>
             </Link>
             </div>

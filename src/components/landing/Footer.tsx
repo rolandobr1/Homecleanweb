@@ -1,17 +1,17 @@
+
 import Link from "next/link";
-import { Sparkles, Facebook } from "lucide-react";
-import Image from "next/image";
+import { Sparkles, Facebook, Instagram, MessageSquare } from "lucide-react";
 
 const footerLinks = {
   products: [
-    { label: "Jabón de Cuaba", href: "#products" },
-    { label: "Lavaplatos", href: "#products" },
-    { label: "Jabón Neutro", href: "#products" },
-    { label: "Desinfectantes", href: "#products" },
+    { label: "Jabón de Cuaba", href: "/products" },
+    { label: "Lavaplatos", href: "/products" },
+    { label: "Jabón Neutro", href: "/products" },
+    { label: "Desinfectantes", href: "/products" },
   ],
   company: [
-    { label: "Sobre Nosotros", href: "#about" },
-    { label: "Contacto", href: "#contact" },
+    { label: "Sobre Nosotros", href: "/#about" },
+    { label: "Contacto", href: "/#contact" },
     { label: "Política de Privacidad", href: "#" },
   ],
 };
@@ -60,11 +60,11 @@ export default function Footer() {
               <Link href="#" aria-label="Facebook" className="text-gray-300 hover:text-blue-400">
                 <Facebook className="h-6 w-6" />
               </Link>
-              <Link href="#" aria-label="Instagram">
-                <Image src="/images/ig.png" alt="Instagram" width={24} height={24} className="hover:opacity-80" />
+              <Link href="#" aria-label="Instagram" className="text-gray-300 hover:text-blue-400">
+                <Instagram className="h-6 w-6" />
               </Link>
-              <Link href="https://wa.me/18095551234" target="_blank" aria-label="WhatsApp">
-                <Image src="/images/wa.png" alt="WhatsApp" width={24} height={24} className="hover:opacity-80" />
+              <Link href="https://wa.me/18095551234" target="_blank" aria-label="WhatsApp" className="text-gray-300 hover:text-blue-400">
+                <MessageSquare className="h-6 w-6" />
               </Link>
             </div>
           </div>
