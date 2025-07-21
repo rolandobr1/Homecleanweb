@@ -5,12 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import {
-  Menu,
-  Facebook,
-  Instagram,
-  MessageSquare,
-} from "lucide-react";
+import { Menu } from "lucide-react";
 
 const navLinks = [
   { href: "#home", label: "Inicio" },
@@ -61,13 +56,13 @@ export default function Header() {
           </Link>
           <div className="flex items-center gap-4">
             <Link href="#" aria-label="Facebook">
-              <Facebook className="h-5 w-5 text-primary-foreground/80 hover:text-primary-foreground" />
+              <Image src="/images/face.png" alt="Facebook" width={20} height={20} className="opacity-80 hover:opacity-100" />
             </Link>
             <Link href="#" aria-label="Instagram">
-              <Instagram className="h-5 w-5 text-primary-foreground/80 hover:text-primary-foreground" />
+              <Image src="/images/ig.png" alt="Instagram" width={20} height={20} className="opacity-80 hover:opacity-100" />
             </Link>
             <Link href="https://wa.me/18095551234" target="_blank" aria-label="WhatsApp">
-              <MessageSquare className="h-5 w-5 text-primary-foreground/80 hover:text-primary-foreground" />
+              <Image src="/images/wa.png" alt="WhatsApp" width={20} height={20} className="opacity-80 hover:opacity-100" />
             </Link>
           </div>
         </div>
@@ -107,13 +102,13 @@ export default function Header() {
                 </Link>
                 <div className="flex justify-center gap-6">
                     <Link href="#" aria-label="Facebook">
-                        <Facebook className="h-6 w-6 text-muted-foreground hover:text-primary" />
+                        <Image src="/images/face.png" alt="Facebook" width={24} height={24} className="text-muted-foreground hover:text-primary" />
                     </Link>
                     <Link href="#" aria-label="Instagram">
-                        <Instagram className="h-6 w-6 text-muted-foreground hover:text-primary" />
+                        <Image src="/images/ig.png" alt="Instagram" width={24} height={24} className="text-muted-foreground hover:text-primary" />
                     </Link>
                     <Link href="https://wa.me/18095551234" target="_blank" aria-label="WhatsApp">
-                        <MessageSquare className="h-6 w-6 text-muted-foreground hover:text-primary" />
+                        <Image src="/images/wa.png" alt="WhatsApp" width={24} height={24} className="text-muted-foreground hover:text-primary" />
                     </Link>
                 </div>
               </div>
