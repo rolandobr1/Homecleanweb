@@ -17,24 +17,24 @@ const footerLinks = {
 
 export default function Footer() {
   return (
-    <footer className="bg-white border-t">
+    <footer className="bg-gray-800 text-white">
       <div className="container mx-auto px-4 md:px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-1">
-            <Link href="/" className="flex items-center gap-2 font-bold text-xl">
-              <Sparkles className="h-6 w-6 text-primary" />
+            <Link href="/" className="flex items-center gap-2 font-bold text-xl text-white">
+              <Sparkles className="h-6 w-6 text-blue-400" />
               <span>Home Clean</span>
             </Link>
-            <p className="mt-4 text-muted-foreground text-sm">
+            <p className="mt-4 text-gray-300 text-sm">
               Limpieza y frescura para un hogar feliz.
             </p>
           </div>
           <div>
-            <h4 className="font-semibold mb-4">Productos</h4>
+            <h4 className="font-semibold mb-4 text-blue-400">Productos</h4>
             <ul className="space-y-2">
               {footerLinks.products.map((link) => (
                 <li key={link.label}>
-                  <Link href={link.href} className="text-sm text-muted-foreground hover:text-primary">
+                  <Link href={link.href} className="text-sm text-gray-300 hover:text-blue-400">
                     {link.label}
                   </Link>
                 </li>
@@ -42,11 +42,11 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h4 className="font-semibold mb-4">Empresa</h4>
+            <h4 className="font-semibold mb-4 text-blue-400">Empresa</h4>
             <ul className="space-y-2">
               {footerLinks.company.map((link) => (
                 <li key={link.label}>
-                  <Link href={link.href} className="text-sm text-muted-foreground hover:text-primary">
+                  <Link href={link.href} className="text-sm text-gray-300 hover:text-blue-400">
                     {link.label}
                   </Link>
                 </li>
@@ -54,21 +54,21 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h4 className="font-semibold mb-4">Síguenos</h4>
+            <h4 className="font-semibold mb-4 text-blue-400">Síguenos</h4>
             <div className="flex items-center gap-4">
               <Link href="#" aria-label="Facebook">
-                <Facebook className="h-6 w-6 text-muted-foreground hover:text-primary" />
+                <Facebook className="h-6 w-6 text-gray-300 hover:text-blue-400" />
               </Link>
               <Link href="#" aria-label="Instagram">
-                <Instagram className="h-6 w-6 text-muted-foreground hover:text-primary" />
+                <Instagram className="h-6 w-6 text-gray-300 hover:text-blue-400" />
               </Link>
               <Link href="https://wa.me/18095551234" target="_blank" aria-label="WhatsApp">
-                <MessageSquare className="h-6 w-6 text-muted-foreground hover:text-primary" />
+                <MessageSquare className="h-6 w-6 text-gray-300 hover:text-blue-400" />
               </Link>
             </div>
           </div>
         </div>
-        <div className="border-t mt-8 pt-6 text-center text-sm text-muted-foreground">
+        <div className="border-t border-gray-700 mt-8 pt-6 text-center text-sm text-gray-400">
           <p>&copy; {new Date().getFullYear()} Home Clean. Todos los derechos reservados.</p>
         </div>
       </div>
