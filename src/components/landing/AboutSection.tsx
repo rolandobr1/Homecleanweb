@@ -57,7 +57,7 @@ export default function AboutSection() {
           </div>
           <div className="rounded-lg overflow-hidden shadow-xl">
             <Image
-              src="/images/todos.jpg"
+              src="/images/nosotros.jpg"
               alt="Equipo de Home Clean"
               width={600}
               height={450}
