@@ -22,7 +22,7 @@ const products = [
     id: "jabon-neutro",
     name: "Jabón Neutro",
     description: "La fórmula suave y de pH balanceado de nuestro Jabón Neutro lo hace ideal para el lavado de ropa delicada, prendas de bebé y para personas con piel sensible. Limpia eficazmente sin ser agresivo con los tejidos ni con la piel, preservando los colores y la suavidad de tu ropa. Es hipoalergénico y no deja residuos.",
-    image: "/images/neutropote.png",
+    image: "/images/neutro.png",
     aiHint: "soap bottle",
   },
   {

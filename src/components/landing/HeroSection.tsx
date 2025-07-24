@@ -18,7 +18,7 @@ const slides = [
     subtitle: "Descubre la magia de nuestros productos de limpieza, diseñados para brindarte resultados extraordinarios y un frescor duradero.",
     buttonText: "Ver Nuestros Productos",
     buttonLink: "/products",
-    imageUrl: "/images/slide1.png",
+    imageUrl: "/images/slide1.jpg",
     dataAiHint: "cleaning products",
   },
   {
@@ -26,7 +26,7 @@ const slides = [
     subtitle: "Nuestro lavaplatos líquido elimina la grasa más difícil, dejando tu vajilla reluciente y tus manos suaves.",
     buttonText: "Descubre el Lavaplatos",
     buttonLink: "/products#lavaplatos-liquido",
-    imageUrl: "/images/slide2.png",
+    imageUrl: "/images/slide2.jpg",
     dataAiHint: "clean kitchen sink",
   },
   {
@@ -34,7 +34,7 @@ const slides = [
     subtitle: "Con nuestros desinfectantes, tu hogar no solo olerá increíble, sino que estará protegido y seguro para tu familia.",
     buttonText: "Explora Desinfectantes",
     buttonLink: "/products#desinfectante-frutos-rojos",
-    imageUrl: "/images/slide3.png",
+    imageUrl: "/images/slide3.jpg",
     dataAiHint: "clean living room",
   },
 ];

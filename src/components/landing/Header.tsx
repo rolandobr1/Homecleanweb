@@ -55,7 +55,7 @@ export default function Header() {
           </Link>
           <div className="flex items-center gap-4">
              <Link href="https://web.facebook.com/profile.php?id=100063748722913" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-primary-foreground hover:opacity-80">
-                <Image src="/images/face.png" alt="Facebook" width={24} height={24} />
+                <Image src="/images/facebook.png" alt="Facebook" width={24} height={24} />
               </Link>
               <Link href="https://www.instagram.com/homeclean_rd/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-primary-foreground hover:opacity-80">
                 <Image src="/images/ig.png" alt="Instagram" width={24} height={24} className="hover:opacity-80" />

@@ -8,7 +8,7 @@ import Footer from "@/components/landing/Footer";
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
-  title: "Clean Home Hub",
+  title: "HomeCleanRD",
   description: "Tu Hogar, Impecablemente Limpio",
 };
 
