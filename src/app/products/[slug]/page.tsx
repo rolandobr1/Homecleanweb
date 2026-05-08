@@ -10,11 +10,12 @@ import { Badge } from "@/components/ui/badge";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 interface PageProps {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 export async function generateMetadata({ params }: PageProps) {
-  const product = products.find(p => p.slug === params.slug);
+  const { slug } = await params;
+  const product = products.find(p => p.slug === slug);
   if (!product) return constructMetadata({ title: "Producto no encontrado", noIndex: true });
   
   return constructMetadata({
@@ -24,8 +25,9 @@ export async function generateMetadata({ params }: PageProps) {
   });
 }
 
-export default function ProductDetailPage({ params }: PageProps) {
-  const product = products.find(p => p.slug === params.slug);
+export default async function ProductDetailPage({ params }: PageProps) {
+  const { slug } = await params;
+  const product = products.find(p => p.slug === slug);
   if (!product) notFound();
 
   const whatsappMessage = encodeURIComponent(`¡Hola! Estoy interesado en el producto ${product.name} que vi en su web.`);
@@ -80,7 +82,6 @@ export default function ProductDetailPage({ params }: PageProps) {
           </div>
         </div>
 
-        {/* FAQ del Producto */}
         <div className="max-w-2xl">
           <h2 className="text-2xl font-bold mb-6">Preguntas sobre {product.name}</h2>
           <Accordion type="single" collapsible className="w-full">

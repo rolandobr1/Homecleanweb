@@ -20,7 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   const categoryRoutes = categories.map(category => ({
-    url: `${baseUrl}/products/${category.slug}`,
+    url: `${baseUrl}/products/category/${category.slug}`,
     lastModified: new Date(),
     changeFrequency: 'monthly' as const,
     priority: 0.6,
