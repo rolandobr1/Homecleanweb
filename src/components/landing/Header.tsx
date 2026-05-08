@@ -1,7 +1,7 @@
 
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
@@ -18,28 +18,13 @@ const navLinks = [
 
 export default function Header() {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
   const whatsappNumber = "8094772885";
   const message = encodeURIComponent("¡Hola! Vengo desde su página web y estoy interesado en sus productos.");
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) {
-    return (
-      <header className="fixed top-0 left-0 right-0 z-50 h-20 bg-primary shadow-md">
-        <div className="container mx-auto flex h-full items-center justify-between px-4 md:px-6">
-          <div className="w-[140px] h-[40px] bg-white/20 rounded animate-pulse" />
-        </div>
-      </header>
-    );
-  }
-
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-primary text-primary-foreground shadow-md">
-      <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
+    <header className="fixed top-0 left-0 right-0 z-50 h-20 bg-primary text-primary-foreground shadow-md">
+      <div className="container mx-auto flex h-full items-center justify-between px-4 md:px-6">
         <Link href="/">
           <Image 
             src="/images/logoweb.png" 
