@@ -1,18 +1,18 @@
-
 import Link from "next/link";
 import Image from "next/image";
 
 const footerLinks = {
   products: [
-    { label: "Jabón de Cuaba", href: "/products#jabon-de-cuaba" },
-    { label: "Lavaplatos", href: "/products#lavaplatos-liquido" },
-    { label: "Jabón Neutro", href: "/products#jabon-neutro" },
-    { label: "Desinfectantes", href: "/products#desinfectante-frutos-rojos" },
+    { label: "Jabón de Cuaba", href: "/products/jabon-de-cuaba" },
+    { label: "Lavaplatos", href: "/products/lavaplatos-liquido" },
+    { label: "Jabón Neutro", href: "/products/jabon-neutro" },
+    { label: "Desinfectantes", href: "/products/desinfectante-lavanda" },
   ],
   company: [
     { label: "Sobre Nosotros", href: "/#about" },
+    { label: "Blog de Limpieza", href: "/blog" },
     { label: "Contacto", href: "/#contact" },
-    { label: "Política de Privacidad", href: "#" },
+    { label: "Emprende con nosotros", href: "/emprende" },
   ],
 };
 
@@ -35,7 +35,7 @@ export default function Footer() {
               />
             </Link>
             <p className="mt-4 text-gray-300 text-sm">
-              Limpieza y frescura para un hogar feliz.
+              Limpieza y frescura para un hogar feliz en República Dominicana.
             </p>
           </div>
           <div>
