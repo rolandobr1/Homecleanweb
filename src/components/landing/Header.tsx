@@ -1,7 +1,7 @@
 
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
@@ -18,11 +18,6 @@ const navLinks = [
 
 export default function Header() {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   const whatsappNumber = "8094772885";
   const message = encodeURIComponent("¡Hola! Vengo desde su página web y estoy interesado en sus productos.");
@@ -70,68 +65,60 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Solo renderizamos el Sheet si está montado para evitar discrepancias de hidratación en componentes Radix */}
-        {mounted && (
-          <Sheet open={isMobileMenuOpen} onOpenChange={setMobileMenuOpen}>
-            <SheetTrigger asChild className="md:hidden">
-              <Button variant="ghost" size="icon" className="text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground">
-                <Menu className="h-6 w-6" />
-                <span className="sr-only">Toggle navigation menu</span>
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="left" className="bg-card text-card-foreground">
-               <SheetHeader>
-                  <SheetTitle className="sr-only">Menú de Navegación</SheetTitle>
-                  <SheetDescription className="sr-only">
-                      Navegación principal y enlaces de redes sociales para Home Clean.
-                  </SheetDescription>
-              </SheetHeader>
-              <div className="flex flex-col gap-6 p-6">
-                <Link href="/" onClick={() => setMobileMenuOpen(false)}>
-                  <Image 
-                    src="/images/logoweb.png" 
-                    alt="Home Clean Logo" 
-                    width={140} 
-                    height={40}
-                  />
-                </Link>
-                <nav className="flex flex-col gap-4">
-                  {navLinks.map((link) => (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      onClick={() => setMobileMenuOpen(false)}
-                      className="text-lg font-medium text-muted-foreground transition-colors hover:text-primary"
-                    >
-                      {link.label}
-                    </Link>
-                  ))}
-                </nav>
-                <div className="border-t pt-6 flex flex-col gap-4">
-                  <Link href="https://homecleanrd.netlify.app" target="_blank">
-                      <Button className="w-full">Iniciar Sesión</Button>
+        <Sheet open={isMobileMenuOpen} onOpenChange={setMobileMenuOpen}>
+          <SheetTrigger asChild className="md:hidden">
+            <Button variant="ghost" size="icon" className="text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground">
+              <Menu className="h-6 w-6" />
+              <span className="sr-only">Toggle navigation menu</span>
+            </Button>
+          </SheetTrigger>
+          <SheetContent side="left" className="bg-card text-card-foreground">
+             <SheetHeader>
+                <SheetTitle className="sr-only">Menú de Navegación</SheetTitle>
+                <SheetDescription className="sr-only">
+                    Navegación principal y enlaces de redes sociales para Home Clean.
+                </SheetDescription>
+            </SheetHeader>
+            <div className="flex flex-col gap-6 p-6">
+              <Link href="/" onClick={() => setMobileMenuOpen(false)}>
+                <Image 
+                  src="/images/logoweb.png" 
+                  alt="Home Clean Logo" 
+                  width={140} 
+                  height={40}
+                />
+              </Link>
+              <nav className="flex flex-col gap-4">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="text-lg font-medium text-muted-foreground transition-colors hover:text-primary"
+                  >
+                    {link.label}
                   </Link>
-                  <div className="flex justify-center gap-6">
-                      <Link href="https://web.facebook.com/profile.php?id=100063748722913" target="_blank" rel="noopener noreferrer">
-                         <Image src="/images/facebook.png" alt="Facebook" width={24} height={24} />
-                      </Link>
-                      <Link href="https://www.instagram.com/homeclean_rd/" target="_blank" rel="noopener noreferrer">
-                         <Image src="/images/ig.png" alt="Instagram" width={24} height={24} />
-                      </Link>
-                      <Link href={whatsappUrl} target="_blank">
-                          <Image src="/images/wa.png" alt="WhatsApp" width={24} height={24} />
-                      </Link>
-                  </div>
+                ))}
+              </nav>
+              <div className="border-t pt-6 flex flex-col gap-4">
+                <Link href="https://homecleanrd.netlify.app" target="_blank">
+                    <Button className="w-full">Iniciar Sesión</Button>
+                </Link>
+                <div className="flex justify-center gap-6">
+                    <Link href="https://web.facebook.com/profile.php?id=100063748722913" target="_blank" rel="noopener noreferrer">
+                       <Image src="/images/facebook.png" alt="Facebook" width={24} height={24} />
+                    </Link>
+                    <Link href="https://www.instagram.com/homeclean_rd/" target="_blank" rel="noopener noreferrer">
+                       <Image src="/images/ig.png" alt="Instagram" width={24} height={24} />
+                    </Link>
+                    <Link href={whatsappUrl} target="_blank">
+                        <Image src="/images/wa.png" alt="WhatsApp" width={24} height={24} />
+                    </Link>
                 </div>
               </div>
-            </SheetContent>
-          </Sheet>
-        )}
-        
-        {/* Marcador de posición para el botón de menú mientras carga el cliente */}
-        {!mounted && (
-          <div className="md:hidden h-10 w-10" />
-        )}
+            </div>
+          </SheetContent>
+        </Sheet>
       </div>
     </header>
   );
