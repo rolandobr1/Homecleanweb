@@ -9,6 +9,7 @@ Plataforma profesional para **HomeCleanRD**, optimizada para SEO, velocidad y co
 - **Blog de Contenidos**: Sistema de blog para captación de tráfico orgánico basado en consejos de limpieza.
 - **Performance**: Optimización de imágenes y Core Web Vitals usando Next.js 15.
 - **WhatsApp Marketing**: Integración directa de CTAs para pedidos por WhatsApp.
+- **Hydration Fixed**: Estructura de componentes optimizada para evitar errores de hidratación en SSR.
 
 ## Tecnologías
 
@@ -18,7 +19,17 @@ Plataforma profesional para **HomeCleanRD**, optimizada para SEO, velocidad y co
 - **Server Actions**
 - **Genkit (AI Ready)**
 
-## Instalación
+## Guía de Desarrollo y Git
+
+Para subir tus cambios a GitHub por primera vez:
+
+1. **Inicializar Git**: `git init`
+2. **Vincular Remoto**: `git remote add origin https://github.com/TU_USUARIO/Homecleanweb.git`
+3. **Guardar Cambios**: `git add .`
+4. **Commit**: `git commit -m "Mejoras en Homecleanweb"`
+5. **Push**: `git push -u origin main`
+
+## Instalación Local
 
 1. Clona el repositorio.
 2. Instala las dependencias: `npm install`.
