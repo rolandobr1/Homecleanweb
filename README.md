@@ -11,23 +11,16 @@ Plataforma profesional para **HomeCleanRD**, optimizada para SEO, velocidad y co
 - **WhatsApp Marketing**: Integración directa de CTAs para pedidos por WhatsApp.
 - **Hydration Fixed**: Estructura de componentes optimizada para evitar errores de hidratación en SSR.
 
-## Tecnologías
-
-- **Next.js 15 (App Router)**
-- **Tailwind CSS & ShadCN UI**
-- **TypeScript**
-- **Server Actions**
-- **Genkit (AI Ready)**
-
 ## Guía de Despliegue en GitHub
 
-Para subir tus cambios a tu repositorio:
+Si encuentras un error al hacer push porque el repositorio remoto tiene cambios que no tienes localmente, sigue estos pasos:
 
 1. **Añadir Cambios**: `git add .`
 2. **Commit**: `git commit -m "Versión final Homecleanweb - Optimización SEO e Hydration Fix"`
-3. **Push**: `git push -u origin main`
+3. **Sincronizar (si da error el push)**: `git pull origin main --rebase`
+4. **Push final**: `git push -u origin main`
 
-*Nota: Si te da error de 'remote origin already exists', simplemente salta el paso de 'git remote add'.*
+*URL del repositorio:* [https://github.com/rolandobr1/Homecleanweb](https://github.com/rolandobr1/Homecleanweb)
 
 ## Instalación Local
 
