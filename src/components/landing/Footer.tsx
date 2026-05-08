@@ -20,13 +20,13 @@ const footerLinks = {
 };
 
 export default function Footer() {
-  const [currentYear, setCurrentYear] = useState<number | null>(null);
+  const [year, setYear] = useState("2025");
   const whatsappNumber = "8094772885";
   const message = encodeURIComponent("¡Hola! Vengo desde su página web y estoy interesado en sus productos.");
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
 
   useEffect(() => {
-    setCurrentYear(new Date().getFullYear());
+    setYear(new Date().getFullYear().toString());
   }, []);
 
   return (
@@ -86,7 +86,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="border-t border-gray-700 mt-8 pt-6 text-center text-sm text-gray-400">
-          <p>&copy; {currentYear || '2025'} Home Clean. Todos los derechos reservados.</p>
+          <p>&copy; {year} Home Clean. Todos los derechos reservados.</p>
         </div>
       </div>
     </footer>
