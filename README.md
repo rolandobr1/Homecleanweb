@@ -19,14 +19,14 @@ Plataforma profesional para **HomeCleanRD**, optimizada para SEO, velocidad y co
 - **Server Actions**
 - **Genkit (AI Ready)**
 
-## Guía de Desarrollo y Git
+## Guía de Despliegue en GitHub
 
-Para subir tus cambios a GitHub por primera vez:
+Para subir tus cambios a tu repositorio:
 
 1. **Inicializar Git**: `git init`
-2. **Vincular Remoto**: `git remote add origin https://github.com/TU_USUARIO/Homecleanweb.git`
+2. **Vincular Remoto**: `git remote add origin https://github.com/rolandobr1/Homecleanweb.git`
 3. **Guardar Cambios**: `git add .`
-4. **Commit**: `git commit -m "Mejoras en Homecleanweb"`
+4. **Commit**: `git commit -m "Versión final Homecleanweb - Optimización SEO e Hydration Fix"`
 5. **Push**: `git push -u origin main`
 
 ## Instalación Local
