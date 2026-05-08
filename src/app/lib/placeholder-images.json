@@ -1,0 +1,21 @@
+
+{
+  "hero": {
+    "slide1": "https://picsum.photos/seed/clean1/1920/1080",
+    "slide2": "https://picsum.photos/seed/clean2/1920/1080",
+    "slide3": "https://picsum.photos/seed/clean3/1920/1080"
+  },
+  "products": {
+    "cuaba": "/images/cuabapote.png",
+    "lavaplatos": "/images/lavaplatospote.png",
+    "neutro": "/images/neutro.png",
+    "frutos-rojos": "/images/frutosrojospote.png",
+    "lavanda": "/images/lavandapote.png"
+  },
+  "blog": {
+    "cleaning-tips": "https://picsum.photos/seed/tips/800/600",
+    "disinfecting": "https://picsum.photos/seed/disinfect/800/600"
+  },
+  "about": "/images/nosotros.jpg",
+  "entrepreneur": "/images/emprende.jpg"
+}
