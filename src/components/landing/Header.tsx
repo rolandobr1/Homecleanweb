@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -26,12 +27,18 @@ export default function Header() {
     setMounted(true);
   }, []);
 
-  if (!mounted) return null;
+  if (!mounted) {
+    return (
+      <header className="fixed top-0 left-0 right-0 z-50 h-20 bg-primary shadow-md">
+        <div className="container mx-auto flex h-full items-center justify-between px-4 md:px-6">
+          <div className="w-[140px] h-[40px] bg-white/20 rounded animate-pulse" />
+        </div>
+      </header>
+    );
+  }
 
   return (
-    <header
-      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-primary text-primary-foreground shadow-md"
-    >
+    <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-primary text-primary-foreground shadow-md">
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
         <Link href="/">
           <Image 
@@ -60,14 +67,14 @@ export default function Header() {
             <Button variant="ghost" className="text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground">Iniciar Sesión</Button>
           </Link>
           <div className="flex items-center gap-4">
-             <Link href="https://web.facebook.com/profile.php?id=100063748722913" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-primary-foreground hover:opacity-80">
+              <Link href="https://web.facebook.com/profile.php?id=100063748722913" target="_blank" rel="noopener noreferrer" className="text-primary-foreground hover:opacity-80">
                 <Image src="/images/facebook.png" alt="Facebook" width={24} height={24} />
               </Link>
-              <Link href="https://www.instagram.com/homeclean_rd/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-primary-foreground hover:opacity-80">
-                <Image src="/images/ig.png" alt="Instagram" width={24} height={24} className="hover:opacity-80" />
+              <Link href="https://www.instagram.com/homeclean_rd/" target="_blank" rel="noopener noreferrer" className="text-primary-foreground hover:opacity-80">
+                <Image src="/images/ig.png" alt="Instagram" width={24} height={24} />
               </Link>
-              <Link href={whatsappUrl} target="_blank" aria-label="WhatsApp" className="text-primary-foreground hover:opacity-80">
-                <Image src="/images/wa.png" alt="WhatsApp" width={24} height={24} className="hover:opacity-80" />
+              <Link href={whatsappUrl} target="_blank" className="text-primary-foreground hover:opacity-80">
+                <Image src="/images/wa.png" alt="WhatsApp" width={24} height={24} />
               </Link>
           </div>
         </div>
@@ -112,13 +119,13 @@ export default function Header() {
                     <Button className="w-full">Iniciar Sesión</Button>
                 </Link>
                 <div className="flex justify-center gap-6">
-                    <Link href="https://web.facebook.com/profile.php?id=100063748722913" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                    <Link href="https://web.facebook.com/profile.php?id=100063748722913" target="_blank" rel="noopener noreferrer">
                        <Image src="/images/facebook.png" alt="Facebook" width={24} height={24} />
                     </Link>
-                    <Link href="https://www.instagram.com/homeclean_rd/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <Link href="https://www.instagram.com/homeclean_rd/" target="_blank" rel="noopener noreferrer">
                        <Image src="/images/ig.png" alt="Instagram" width={24} height={24} />
                     </Link>
-                    <Link href={whatsappUrl} target="_blank" aria-label="WhatsApp">
+                    <Link href={whatsappUrl} target="_blank">
                         <Image src="/images/wa.png" alt="WhatsApp" width={24} height={24} />
                     </Link>
                 </div>

@@ -9,11 +9,12 @@ import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 
 interface PageProps {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 export async function generateMetadata({ params }: PageProps) {
-  const post = blogPosts.find(p => p.slug === params.slug);
+  const { slug } = await params;
+  const post = blogPosts.find(p => p.slug === slug);
   if (!post) return constructMetadata({ title: "Artículo no encontrado", noIndex: true });
   
   return constructMetadata({
@@ -23,8 +24,9 @@ export async function generateMetadata({ params }: PageProps) {
   });
 }
 
-export default function BlogPostPage({ params }: PageProps) {
-  const post = blogPosts.find(p => p.slug === params.slug);
+export default async function BlogPostPage({ params }: PageProps) {
+  const { slug } = await params;
+  const post = blogPosts.find(p => p.slug === slug);
   if (!post) notFound();
 
   return (
