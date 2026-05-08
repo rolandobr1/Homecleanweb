@@ -23,18 +23,17 @@ Plataforma profesional para **HomeCleanRD**, optimizada para SEO, velocidad y co
 
 Para subir tus cambios a tu repositorio:
 
-1. **Inicializar Git**: `git init`
-2. **Vincular Remoto**: `git remote add origin https://github.com/rolandobr1/Homecleanweb.git`
-3. **Guardar Cambios**: `git add .`
-4. **Commit**: `git commit -m "Versión final Homecleanweb - Optimización SEO e Hydration Fix"`
-5. **Push**: `git push -u origin main`
+1. **Añadir Cambios**: `git add .`
+2. **Commit**: `git commit -m "Versión final Homecleanweb - Optimización SEO e Hydration Fix"`
+3. **Push**: `git push -u origin main`
+
+*Nota: Si te da error de 'remote origin already exists', simplemente salta el paso de 'git remote add'.*
 
 ## Instalación Local
 
-1. Clona el repositorio.
-2. Instala las dependencias: `npm install`.
-3. Configura tus variables de entorno para Resend y Firebase.
-4. Inicia el servidor de desarrollo: `npm run dev`.
+1. Clona el repositorio: `git clone https://github.com/rolandobr1/Homecleanweb.git`
+2. Instala las dependencias: `npm install`
+3. Inicia el servidor de desarrollo: `npm run dev`
 
 ---
 Desarrollado para HomeCleanRD.
