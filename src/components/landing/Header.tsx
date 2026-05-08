@@ -1,11 +1,10 @@
-
 "use client";
 
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
 
 const navLinks = [
@@ -75,9 +74,6 @@ export default function Header() {
           <SheetContent side="left" className="bg-card text-card-foreground">
              <SheetHeader>
                 <SheetTitle className="sr-only">Menú de Navegación</SheetTitle>
-                <SheetDescription className="sr-only">
-                    Navegación principal y enlaces de redes sociales para Home Clean.
-                </SheetDescription>
             </SheetHeader>
             <div className="flex flex-col gap-6 p-6">
               <Link href="/" onClick={() => setMobileMenuOpen(false)}>
