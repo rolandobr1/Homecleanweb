@@ -51,7 +51,7 @@ export const products = [
     shortDescription: "Arranca la grasa más difícil.",
     description: "Formulado para cortar la grasa persistente sin esfuerzo. Su espuma activa deja tus platos rechinando de limpios con un refrescante aroma cítrico.",
     image: "/images/lavaplatospote.png",
-    sizes: ["Galón", "500ml"],
+    sizes: ["Galón"],
     features: ["Ultra Desengrasante", "Antibacteriano", "Suave con las manos"],
     faqs: [
       { q: "¿Irrita las manos?", a: "No, tiene un pH balanceado para proteger tu piel." }
@@ -78,7 +78,7 @@ export const blogPosts = [
     title: "Cómo desinfectar correctamente tu hogar en República Dominicana",
     excerpt: "Guía paso a paso para mantener tu casa libre de virus usando productos locales de alta calidad en el clima tropical de RD.",
     date: "2024-03-20",
-    image: "https://picsum.photos/seed/blog1/800/600",
+    image: "/images/slide3.jpg",
     content: `
       <h2>La importancia de la desinfección en el clima tropical</h2>
       <p>Vivir en la República Dominicana implica convivir con altos niveles de humedad y temperaturas cálidas durante todo el año. Estas condiciones son ideales para la proliferación de bacterias y hongos en el hogar. Por eso, una limpieza superficial no es suficiente; necesitamos una desinfección profunda.</p>
@@ -114,7 +114,7 @@ export const blogPosts = [
     title: "5 Beneficios del Jabón de Cuaba que no conocías",
     excerpt: "Descubre por qué este producto tradicional dominicano sigue siendo el rey de la limpieza profunda en Santo Domingo.",
     date: "2024-03-15",
-    image: "https://picsum.photos/seed/blog2/800/600",
+    image: "/images/slide1.jpg",
     content: `
       <h2>El Jabón de Cuaba: Un icono de la limpieza en RD</h2>
       <p>Desde nuestras abuelas hasta las generaciones actuales, el jabón de cuaba ha sido el aliado indispensable en el hogar dominicano. Pero, ¿sabes realmente por qué es tan efectivo? Aquí te revelamos sus secretos.</p>
