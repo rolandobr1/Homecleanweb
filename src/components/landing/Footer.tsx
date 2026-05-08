@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { useState, useEffect } from "react";
 
 const footerLinks = {
   products: [
@@ -17,9 +20,14 @@ const footerLinks = {
 };
 
 export default function Footer() {
+  const [currentYear, setCurrentYear] = useState<number | null>(null);
   const whatsappNumber = "8296919556";
   const message = encodeURIComponent("¡Hola! Vengo desde su página web y estoy interesado en sus productos.");
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
+
+  useEffect(() => {
+    setCurrentYear(new Date().getFullYear());
+  }, []);
 
   return (
     <footer className="bg-gray-800 text-white">
@@ -78,7 +86,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="border-t border-gray-700 mt-8 pt-6 text-center text-sm text-gray-400">
-          <p>&copy; {new Date().getFullYear()} Home Clean. Todos los derechos reservados.</p>
+          <p>&copy; {currentYear || '2025'} Home Clean. Todos los derechos reservados.</p>
         </div>
       </div>
     </footer>

@@ -29,7 +29,7 @@ export default function Header() {
         <Link href="/">
           <Image 
             src="/images/logoweb.png" 
-            alt="Home Clean Logo" 
+            alt="Home Clean RD Logo" 
             width={140} 
             height={40} 
             priority
@@ -41,7 +41,6 @@ export default function Header() {
             <Link
               key={link.href}
               href={link.href}
-              onClick={() => setMobileMenuOpen(false)}
               className="text-sm font-medium text-primary-foreground/80 transition-colors hover:text-primary-foreground"
             >
               {link.label}
@@ -107,7 +106,7 @@ export default function Header() {
                 </Link>
                 <div className="flex justify-center gap-6">
                     <Link href="https://web.facebook.com/profile.php?id=100063748722913" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                       <Image src="/images/face.png" alt="Facebook" width={24} height={24} />
+                       <Image src="/images/facebook.png" alt="Facebook" width={24} height={24} />
                     </Link>
                     <Link href="https://www.instagram.com/homeclean_rd/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                        <Image src="/images/ig.png" alt="Instagram" width={24} height={24} />
