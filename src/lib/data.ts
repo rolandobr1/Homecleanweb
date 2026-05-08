@@ -1,4 +1,3 @@
-
 export const siteConfig = {
   name: "HomeCleanRD",
   url: "https://homecleanrd.com",
@@ -52,7 +51,7 @@ export const products = [
     shortDescription: "Arranca la grasa más difícil.",
     description: "Formulado para cortar la grasa persistente sin esfuerzo. Su espuma activa deja tus platos rechinando de limpios con un refrescante aroma cítrico.",
     image: "/images/lavaplatospote.png",
-    sizes: ["1L", "500ml"],
+    sizes: ["Galón", "500ml"],
     features: ["Ultra Desengrasante", "Antibacteriano", "Suave con las manos"],
     faqs: [
       { q: "¿Irrita las manos?", a: "No, tiene un pH balanceado para proteger tu piel." }

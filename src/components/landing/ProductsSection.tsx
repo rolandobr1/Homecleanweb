@@ -30,7 +30,7 @@ const products = [
     description: "Arranca la grasa más difícil y deja tus platos rechinando de limpios con un fresco aroma.",
     image: "/images/lavaplatos.jpg",
     aiHint: "dish soap",
-    sizes: ["1L", "500ml"],
+    sizes: ["Galón", "500ml"],
     features: ["Desengrasante", "Antibacteriano"],
   },
   {
@@ -125,7 +125,7 @@ export default function ProductsSection() {
                                 style={{ transitionDelay: `${index * 100}ms` }}
                             >
                                 <div className="product-card-gradient h-full rounded-[20px] overflow-hidden shadow-lg transition-all duration-300 ease-in-out hover:-translate-y-2.5 hover:shadow-2xl flex flex-col flex-grow">
-                                    <Link href={`/products#${product.id}`} className="block">
+                                    <Link href={`/products/${product.id}`} className="block">
                                         <div className="h-[200px] w-full overflow-hidden flex justify-center items-center">
                                             <Image
                                                 src={product.image}
@@ -138,7 +138,7 @@ export default function ProductsSection() {
                                         </div>
                                     </Link>
                                     <div className="p-6 flex flex-col flex-grow">
-                                        <Link href={`/products#${product.id}`} className="block">
+                                        <Link href={`/products/${product.id}`} className="block">
                                             <h3 className="text-xl font-headline font-semibold tracking-tight text-primary">{product.name}</h3>
                                             <p className="mt-2 h-12 text-sm text-muted-foreground">{product.description}</p>
                                         </Link>
