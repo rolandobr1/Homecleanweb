@@ -11,6 +11,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
+import placeholderImages from "@/app/lib/placeholder-images.json";
 
 const slides = [
   {
@@ -18,29 +19,28 @@ const slides = [
     subtitle: "Descubre la magia de nuestros productos de limpieza, diseñados para brindarte resultados extraordinarios y un frescor duradero.",
     buttonText: "Ver Nuestros Productos",
     buttonLink: "/products",
-    imageUrl: "/images/slide1.jpg",
+    imageUrl: placeholderImages.hero.slide1,
     dataAiHint: "cleaning products",
   },
   {
     title: "Poder Desengrasante que Cuida tus Manos",
     subtitle: "Nuestro lavaplatos líquido elimina la grasa más difícil, dejando tu vajilla reluciente y tus manos suaves.",
     buttonText: "Descubre el Lavaplatos",
-    buttonLink: "/products#lavaplatos-liquido",
-    imageUrl: "/images/slide2.jpg",
+    buttonLink: "/products/lavaplatos-liquido",
+    imageUrl: placeholderImages.hero.slide2,
     dataAiHint: "clean kitchen sink",
   },
   {
     title: "Un Ambiente Fresco y Libre de Gérmenes",
     subtitle: "Con nuestros desinfectantes, tu hogar no solo olerá increíble, sino que estará protegido y seguro para tu familia.",
     buttonText: "Explora Desinfectantes",
-    buttonLink: "/products#desinfectante-frutos-rojos",
-    imageUrl: "/images/slide3.jpg",
+    buttonLink: "/products/desinfectante-lavanda",
+    imageUrl: placeholderImages.hero.slide3,
     dataAiHint: "clean living room",
   },
 ];
 
 export default function HeroSection() {
-
   return (
     <section 
       id="home" 

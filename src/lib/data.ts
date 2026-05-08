@@ -1,3 +1,6 @@
+
+import placeholderImages from "@/app/lib/placeholder-images.json";
+
 export const siteConfig = {
   name: "HomeCleanRD",
   url: "https://homecleanrd.com",
@@ -5,7 +8,7 @@ export const siteConfig = {
   phone: "809-477-2885",
   address: "Santo Domingo, República Dominicana",
   whatsapp: "8094772885",
-  email: "contacto@homeclean.com"
+  email: "infohomecleanrd@gmail.com"
 };
 
 export const categories = [
@@ -36,7 +39,7 @@ export const products = [
     name: "Jabón de Cuaba",
     shortDescription: "Tradición y poder de limpieza profunda.",
     description: "Nuestro Jabón de Cuaba es la solución tradicional y poderosa para una limpieza profunda en el hogar dominicano. Elaborado con aceite de pino, es ideal para manchas difíciles.",
-    image: "/images/cuabapote.png",
+    image: placeholderImages.products.cuaba,
     sizes: ["Galón", "Medio Galón"],
     features: ["Natural", "Multiuso", "Biodegradable"],
     faqs: [
@@ -50,7 +53,7 @@ export const products = [
     name: "Lavaplatos Fragancia Limón",
     shortDescription: "Arranca la grasa más difícil.",
     description: "Formulado para cortar la grasa persistente sin esfuerzo. Su espuma activa deja tus platos rechinando de limpios con un refrescante aroma cítrico.",
-    image: "/images/lavaplatospote.png",
+    image: placeholderImages.products.lavaplatos,
     sizes: ["Galón"],
     features: ["Ultra Desengrasante", "Antibacteriano", "Suave con las manos"],
     faqs: [
@@ -63,7 +66,7 @@ export const products = [
     name: "Desinfectante Lavanda",
     shortDescription: "Limpieza profunda y aroma relajante.",
     description: "Crea un santuario de calma con el poder germicida de nuestro desinfectante de lavanda. Ideal para pisos, baños y superficies comunes.",
-    image: "/images/lavandapote.png",
+    image: placeholderImages.products.lavanda,
     sizes: ["Galón", "Medio Galón"],
     features: ["Germicida", "Aroma Duradero", "Relajante"],
     faqs: [
@@ -78,10 +81,10 @@ export const blogPosts = [
     title: "Cómo desinfectar correctamente tu hogar en República Dominicana",
     excerpt: "Guía paso a paso para mantener tu casa libre de virus usando productos locales de alta calidad en el clima tropical de RD.",
     date: "2024-03-20",
-    image: "/images/slide3.jpg",
+    image: placeholderImages.blog["cleaning-tips"],
     content: `
       <h2>La importancia de la desinfección en el clima tropical</h2>
-      <p>Vivir en la República Dominicana implica convivir con altos niveles de humedad y temperaturas cálidas durante todo el año. Estas condiciones son ideales para la proliferación de bacterias y hongos en el hogar. Por eso, una limpieza superficial no es suficiente; necesitamos una desinfección profunda.</p>
+      <p>Vivir en la República Dominicana implica convivir con altos niveles de humedad y temperaturas cálidas durante todo el año. Estas condiciones son ideales para la proliferación de bacterias y hongos en el hogar. Por eso, una limpieza profesional no es suficiente; necesitamos una desinfección profunda.</p>
 
       <h3>Limpieza vs. Desinfección: Conoce la diferencia</h3>
       <p>Es un error común pensar que limpiar y desinfectar es lo mismo. La <strong>limpieza</strong> elimina la suciedad visible, pero la <strong>desinfección</strong> es lo que realmente mata a los gérmenes. En HomeCleanRD, nuestros desinfectantes están formulados para eliminar el 99.9% de virus y bacterias comunes en superficies.</p>
@@ -114,7 +117,7 @@ export const blogPosts = [
     title: "5 Beneficios del Jabón de Cuaba que no conocías",
     excerpt: "Descubre por qué este producto tradicional dominicano sigue siendo el rey de la limpieza profunda en Santo Domingo.",
     date: "2024-03-15",
-    image: "/images/slide1.jpg",
+    image: placeholderImages.blog["jabon-cuaba"],
     content: `
       <h2>El Jabón de Cuaba: Un icono de la limpieza en RD</h2>
       <p>Desde nuestras abuelas hasta las generaciones actuales, el jabón de cuaba ha sido el aliado indispensable en el hogar dominicano. Pero, ¿sabes realmente por qué es tan efectivo? Aquí te revelamos sus secretos.</p>

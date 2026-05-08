@@ -1,9 +1,9 @@
 
 {
   "hero": {
-    "slide1": "https://picsum.photos/seed/clean1/1920/1080",
-    "slide2": "https://picsum.photos/seed/clean2/1920/1080",
-    "slide3": "https://picsum.photos/seed/clean3/1920/1080"
+    "slide1": "/images/slide1.jpg",
+    "slide2": "/images/slide2.jpg",
+    "slide3": "/images/slide3.jpg"
   },
   "products": {
     "cuaba": "/images/cuabapote.png",
@@ -13,8 +13,8 @@
     "lavanda": "/images/lavandapote.png"
   },
   "blog": {
-    "cleaning-tips": "https://picsum.photos/seed/tips/800/600",
-    "disinfecting": "https://picsum.photos/seed/disinfect/800/600"
+    "cleaning-tips": "/images/slide3.jpg",
+    "jabon-cuaba": "/images/slide1.jpg"
   },
   "about": "/images/nosotros.jpg",
   "entrepreneur": "/images/emprende.jpg"
