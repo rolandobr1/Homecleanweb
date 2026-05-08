@@ -2,9 +2,9 @@ export const siteConfig = {
   name: "HomeCleanRD",
   url: "https://homecleanrd.com",
   description: "Productos de limpieza de alta calidad en República Dominicana. Jabón de cuaba, desinfectantes y más para un hogar impecable.",
-  phone: "829-691-9556",
+  phone: "809-477-2885",
   address: "Santo Domingo, República Dominicana",
-  whatsapp: "8296919556",
+  whatsapp: "8094772885",
   email: "contacto@homeclean.com"
 };
 

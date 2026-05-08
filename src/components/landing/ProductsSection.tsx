@@ -30,7 +30,7 @@ const products = [
     description: "Arranca la grasa más difícil y deja tus platos rechinando de limpios con un fresco aroma.",
     image: "/images/lavaplatos.jpg",
     aiHint: "dish soap",
-    sizes: ["Galón", "500ml"],
+    sizes: ["Galón", "Medio Galón"],
     features: ["Desengrasante", "Antibacteriano"],
   },
   {
@@ -45,10 +45,10 @@ const products = [
   {
     id: "desinfectante-frutos-rojos",
     name: "Desinfectante Frutos Rojos",
-    description: "Elimina el 99.9% de gérmenes y bacterias, dejando un aroma irresistible a frutos rojos.",
+    description: "Elimina el 99.9% de los gérmenes y bacterias, dejando un aroma irresistible a frutos rojos.",
     image: "/images/frutosrojos.jpg",
     aiHint: "cleaning spray",
-    sizes: ["Galón", "Medio Galón"],
+    sizes: ["Galón"],
     features: ["Antibacteriano", "Aroma Duradero"],
   },
   {
@@ -57,7 +57,7 @@ const products = [
     description: "Un ambiente de calma y limpieza con el poder desinfectante y el relajante aroma a lavanda.",
     image: "/images/lavanda.jpg",
     aiHint: "disinfectant spray",
-    sizes: ["Galón", "Medio Galón"],
+    sizes: ["Galón"],
     features: ["Relajante", "Limpia y Desinfecta"],
   },
 ];
@@ -65,7 +65,7 @@ const products = [
 export default function ProductsSection() {
     const [visibleProducts, setVisibleProducts] = useState<Record<number, boolean>>({});
     const productRefs = useRef<(HTMLDivElement | null)[]>([]);
-    const whatsappNumber = "8296919556";
+    const whatsappNumber = "8094772885";
 
     useEffect(() => {
         const observer = new IntersectionObserver(

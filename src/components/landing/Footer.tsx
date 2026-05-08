@@ -21,7 +21,7 @@ const footerLinks = {
 
 export default function Footer() {
   const [currentYear, setCurrentYear] = useState<number | null>(null);
-  const whatsappNumber = "8296919556";
+  const whatsappNumber = "8094772885";
   const message = encodeURIComponent("¡Hola! Vengo desde su página web y estoy interesado en sus productos.");
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
 

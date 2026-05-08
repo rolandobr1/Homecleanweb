@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
@@ -17,9 +17,16 @@ const navLinks = [
 
 export default function Header() {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const whatsappNumber = "8296919556";
+  const [mounted, setMounted] = useState(false);
+  const whatsappNumber = "8094772885";
   const message = encodeURIComponent("¡Hola! Vengo desde su página web y estoy interesado en sus productos.");
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
 
   return (
     <header
