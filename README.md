@@ -6,6 +6,7 @@ Plataforma profesional para **HomeCleanRD**, optimizada para SEO, velocidad y co
 
 - **Arquitectura SEO Silo**: Rutas optimizadas para categorías y productos individuales.
 - **SEO Técnico**: Generación dinámica de metadata, sitemaps y esquemas de JSON-LD (LocalBusiness, Product, FAQ).
+- **Google Analytics**: Integración de Google Tag (G-RLPF7FYX39) para análisis de tráfico.
 - **Blog de Contenidos**: Sistema de blog para captación de tráfico orgánico basado en consejos de limpieza.
 - **Performance**: Optimización de imágenes y Core Web Vitals usando Next.js 15.
 - **WhatsApp Marketing**: Integración directa de CTAs para pedidos por WhatsApp.
@@ -15,9 +16,9 @@ Plataforma profesional para **HomeCleanRD**, optimizada para SEO, velocidad y co
 
 Si encuentras un error al hacer push porque el repositorio remoto tiene cambios que no tienes localmente, sigue estos pasos:
 
-1. **Añadir Cambios**: `git add .`
-2. **Commit**: `git commit -m "Versión final Homecleanweb - Optimización SEO e Hydration Fix"`
-3. **Sincronizar (si da error el push)**: `git pull origin main --rebase`
+1. **Sincronizar cambios remotos**: `git pull origin main --rebase`
+2. **Añadir Cambios**: `git add .`
+3. **Commit**: `git commit -m "Versión final Homecleanweb - Integración Analytics e Hydration Fix"`
 4. **Push final**: `git push -u origin main`
 
 *URL del repositorio:* [https://github.com/rolandobr1/Homecleanweb](https://github.com/rolandobr1/Homecleanweb)
