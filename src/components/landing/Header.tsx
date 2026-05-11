@@ -6,6 +6,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
+import { siteConfig } from "@/lib/data";
 
 const navLinks = [
   { href: "/", label: "Inicio" },
@@ -18,9 +19,7 @@ const navLinks = [
 export default function Header() {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const whatsappNumber = "8094772885";
-  const message = encodeURIComponent("¡Hola! Vengo desde su página web y estoy interesado en sus productos.");
-  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
+  const whatsappUrl = `https://wa.me/${siteConfig.whatsapp}`;
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 h-20 bg-primary text-primary-foreground shadow-md">

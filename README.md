@@ -16,9 +16,9 @@ Plataforma profesional para **HomeCleanRD**, optimizada para SEO, velocidad y co
 
 Si encuentras un error al hacer push porque el repositorio remoto tiene cambios que no tienes localmente, sigue estos pasos:
 
-1. **Sincronizar cambios remotos**: `git pull origin main --rebase`
-2. **Añadir Cambios**: `git add .`
-3. **Commit**: `git commit -m "Versión final Homecleanweb - Integración Analytics e Hydration Fix"`
+1. **Añadir Cambios**: `git add .`
+2. **Commit**: `git commit -m "Versión final Homecleanweb - Integración Analytics e Hydration Fix"`
+3. **Sincronizar cambios remotos**: `git pull origin main --rebase`
 4. **Push final**: `git push -u origin main`
 
 *URL del repositorio:* [https://github.com/rolandobr1/Homecleanweb](https://github.com/rolandobr1/Homecleanweb)

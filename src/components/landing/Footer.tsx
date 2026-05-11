@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import { siteConfig } from "@/lib/data";
 
 const footerLinks = {
   products: [
@@ -21,9 +22,7 @@ const footerLinks = {
 
 export default function Footer() {
   const [year, setYear] = useState("2025");
-  const whatsappNumber = "8094772885";
-  const message = encodeURIComponent("¡Hola! Vengo desde su página web y estoy interesado en sus productos.");
-  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
+  const whatsappUrl = `https://wa.me/${siteConfig.whatsapp}`;
 
   useEffect(() => {
     setYear(new Date().getFullYear().toString());
@@ -86,7 +85,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="border-t border-gray-700 mt-8 pt-6 text-center text-sm text-gray-400">
-          <p>&copy; {year} Home Clean. Todos los derechos reservados.</p>
+          <p>&copy; {year} {siteConfig.name}. Todos los derechos reservados.</p>
         </div>
       </div>
     </footer>
