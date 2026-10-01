@@ -10,7 +10,9 @@ import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
-export const metadata = constructMetadata();
+const { alternates: _canonicalDeLaHome, ...baseMetadata } = constructMetadata();
+// El canonical lo declara cada página; el layout no lo impone para que ninguna lo herede por error.
+export const metadata: Metadata = baseMetadata;
 
 export default function RootLayout({
   children,

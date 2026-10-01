@@ -3,7 +3,8 @@ import placeholderImages from "@/app/lib/placeholder-images.json";
 
 export const siteConfig = {
   name: "HomeCleanRD",
-  url: "https://homecleanrd.com",
+  // Configurable en Netlify con NEXT_PUBLIC_SITE_URL (p. ej. https://homecleanrd.com al reactivar el dominio).
+  url: (process.env.NEXT_PUBLIC_SITE_URL || "https://homecleanweb.netlify.app").replace(/\/+$/, ""),
   description: "Productos de limpieza de alta calidad en República Dominicana. Jabón de cuaba, desinfectantes y más para un hogar impecable.",
   phone: "809-477-2885",
   address: "Santo Domingo, República Dominicana",
@@ -40,6 +41,8 @@ export const products = [
     shortDescription: "Tradición y poder de limpieza profunda.",
     description: "Nuestro Jabón de Cuaba es la solución tradicional y poderosa para una limpieza profunda en el hogar dominicano. Elaborado con aceite de pino, es ideal para manchas difíciles.",
     image: placeholderImages.products.cuaba,
+    cardImage: "/images/cuaba.jpg",
+    cardDescription: "Poderoso jabón tradicional para una limpieza profunda y efectiva en múltiples superficies.",
     sizes: ["Galón", "Medio Galón"],
     features: ["Natural", "Multiuso", "Biodegradable"],
     faqs: [
@@ -54,7 +57,9 @@ export const products = [
     shortDescription: "Arranca la grasa más difícil.",
     description: "Formulado para cortar la grasa persistente sin esfuerzo. Su espuma activa deja tus platos rechinando de limpios con un refrescante aroma cítrico.",
     image: placeholderImages.products.lavaplatos,
-    sizes: ["Galón"],
+    cardImage: "/images/lavaplatos.jpg",
+    cardDescription: "Arranca la grasa más difícil y deja tus platos rechinando de limpios con un fresco aroma.",
+    sizes: ["Galón", "Medio Galón"],
     features: ["Ultra Desengrasante", "Antibacteriano", "Suave con las manos"],
     faqs: [
       { q: "¿Irrita las manos?", a: "No, tiene un pH balanceado para proteger tu piel." }
@@ -67,8 +72,40 @@ export const products = [
     shortDescription: "Limpieza profunda y aroma relajante.",
     description: "Crea un santuario de calma con el poder germicida de nuestro desinfectante de lavanda. Ideal para pisos, baños y superficies comunes.",
     image: placeholderImages.products.lavanda,
-    sizes: ["Galón", "Medio Galón"],
+    cardImage: "/images/lavanda.jpg",
+    cardDescription: "Un ambiente de calma y limpieza con el poder desinfectante y el relajante aroma a lavanda.",
+    sizes: ["Galón"],
     features: ["Germicida", "Aroma Duradero", "Relajante"],
+    faqs: [
+      { q: "¿Mata virus y bacterias?", a: "Sí, elimina el 99.9% de los gérmenes comunes." }
+    ]
+  },
+  {
+    slug: "jabon-neutro",
+    category: "jabones",
+    name: "Jabón Neutro",
+    shortDescription: "Suave con la piel y las prendas delicadas.",
+    description: "Fórmula suave y balanceada, ideal para el cuidado de la piel y la limpieza de prendas delicadas. Su pH neutro limpia sin maltratar las fibras ni resecar las manos.",
+    image: placeholderImages.products.neutro,
+    cardImage: "/images/neutrolava.jpg",
+    cardDescription: "Fórmula suave y balanceada, ideal para el cuidado de la piel y la limpieza de prendas delicadas.",
+    sizes: ["Galón"],
+    features: ["Hipoalergénico", "PH Neutro"],
+    faqs: [
+      { q: "¿Sirve para ropa delicada?", a: "Sí, su pH neutro limpia sin dañar las fibras de las prendas delicadas." }
+    ]
+  },
+  {
+    slug: "desinfectante-frutos-rojos",
+    category: "desinfectantes",
+    name: "Desinfectante Frutos Rojos",
+    shortDescription: "Elimina gérmenes con un aroma irresistible.",
+    description: "Elimina el 99.9% de los gérmenes y bacterias, dejando un aroma irresistible a frutos rojos. Ideal para pisos, baños y superficies de uso diario.",
+    image: placeholderImages.products["frutos-rojos"],
+    cardImage: "/images/frutosrojos.jpg",
+    cardDescription: "Elimina el 99.9% de los gérmenes y bacterias, dejando un aroma irresistible a frutos rojos.",
+    sizes: ["Galón"],
+    features: ["Antibacteriano", "Aroma Duradero"],
     faqs: [
       { q: "¿Mata virus y bacterias?", a: "Sí, elimina el 99.9% de los gérmenes comunes." }
     ]

@@ -1,4 +1,3 @@
-
 import { Metadata } from "next";
 import { siteConfig } from "./data";
 
@@ -7,14 +6,19 @@ export function constructMetadata({
   description,
   image,
   icons,
+  path = "",
   noIndex = false,
 }: {
   title?: string;
   description?: string;
   image?: string;
   icons?: string;
+  /** Ruta de la página, p. ej. "/products/jabon-de-cuaba". Vacío = home. */
+  path?: string;
   noIndex?: boolean;
 } = {}): Metadata {
+  const pageUrl = `${siteConfig.url}${path}`;
+
   return {
     title: title ? `${title} | ${siteConfig.name}` : siteConfig.name,
     description: description || siteConfig.description,
@@ -22,7 +26,7 @@ export function constructMetadata({
       title: title || siteConfig.name,
       description: description || siteConfig.description,
       images: [{ url: image || "/images/logoweb.png" }],
-      url: siteConfig.url,
+      url: pageUrl,
       type: "website",
       siteName: siteConfig.name,
     },
@@ -35,14 +39,17 @@ export function constructMetadata({
     },
     icons: icons || "/favicon.ico",
     metadataBase: new URL(siteConfig.url),
-    ...(noIndex && {
-      robots: {
-        index: false,
-        follow: false,
-      },
-    }),
-    alternates: {
-      canonical: siteConfig.url,
-    },
+    ...(noIndex
+      ? {
+          robots: {
+            index: false,
+            follow: false,
+          },
+        }
+      : {
+          alternates: {
+            canonical: pageUrl,
+          },
+        }),
   };
 }

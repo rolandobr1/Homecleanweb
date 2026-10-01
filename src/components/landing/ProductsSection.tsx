@@ -13,59 +13,22 @@ import { Badge } from "@/components/ui/badge";
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
+import { products, siteConfig } from '@/lib/data';
 
-const products = [
-  {
-    id: "jabon-de-cuaba",
-    name: "Jabón de Cuaba",
-    description: "Poderoso jabón tradicional para una limpieza profunda y efectiva en múltiples superficies.",
-    image: "/images/cuaba.jpg",
-    aiHint: "soap bar",
-    sizes: ["Galón", "Medio Galón"],
-    features: ["Natural", "Multiuso"],
-  },
-  {
-    id: "lavaplatos-liquido",
-    name: "Lavaplatos Líquido",
-    description: "Arranca la grasa más difícil y deja tus platos rechinando de limpios con un fresco aroma.",
-    image: "/images/lavaplatos.jpg",
-    aiHint: "dish soap",
-    sizes: ["Galón", "Medio Galón"],
-    features: ["Desengrasante", "Antibacteriano"],
-  },
-  {
-    id: "jabon-neutro",
-    name: "Jabón Neutro",
-    description: "Fórmula suave y balanceada, ideal para el cuidado de la piel y la limpieza de prendas delicadas.",
-    image: "/images/neutrolava.jpg",
-    aiHint: "liquid soap",
-    sizes: ["Galón"],
-    features: ["Hipoalergénico", "PH Neutro"],
-  },
-  {
-    id: "desinfectante-frutos-rojos",
-    name: "Desinfectante Frutos Rojos",
-    description: "Elimina el 99.9% de los gérmenes y bacterias, dejando un aroma irresistible a frutos rojos.",
-    image: "/images/frutosrojos.jpg",
-    aiHint: "cleaning spray",
-    sizes: ["Galón"],
-    features: ["Antibacteriano", "Aroma Duradero"],
-  },
-  {
-    id: "desinfectante-lavanda",
-    name: "Desinfectante Lavanda",
-    description: "Un ambiente de calma y limpieza con el poder desinfectante y el relajante aroma a lavanda.",
-    image: "/images/lavanda.jpg",
-    aiHint: "disinfectant spray",
-    sizes: ["Galón"],
-    features: ["Relajante", "Limpia y Desinfecta"],
-  },
-];
+// Única fuente de verdad: src/lib/data.ts. Así cada tarjeta enlaza a una ficha que existe.
+export const homeProducts = products.map((p) => ({
+    slug: p.slug,
+    name: p.name,
+    description: p.cardDescription,
+    image: p.cardImage,
+    sizes: p.sizes,
+    features: p.features.slice(0, 2),
+}));
 
 export default function ProductsSection() {
     const [visibleProducts, setVisibleProducts] = useState<Record<number, boolean>>({});
     const productRefs = useRef<(HTMLDivElement | null)[]>([]);
-    const whatsappNumber = "8094772885";
+    const whatsappNumber = siteConfig.whatsapp;
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -110,12 +73,12 @@ export default function ProductsSection() {
                     </p>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {products.map((product, index) => {
+                    {homeProducts.map((product, index) => {
                         const message = encodeURIComponent(`¡Hola! Vengo desde su página web. Quiero ordenar ${product.name}.`);
                         const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
                         return (
                             <div
-                                key={product.id}
+                                key={product.slug}
                                 ref={(el) => (productRefs.current[index] = el)}
                                 data-index={index}
                                 className={cn(
@@ -125,7 +88,7 @@ export default function ProductsSection() {
                                 style={{ transitionDelay: `${index * 100}ms` }}
                             >
                                 <div className="product-card-gradient h-full rounded-[20px] overflow-hidden shadow-lg transition-all duration-300 ease-in-out hover:-translate-y-2.5 hover:shadow-2xl flex flex-col flex-grow">
-                                    <Link href={`/products/${product.id}`} className="block">
+                                    <Link href={`/products/${product.slug}`} className="block">
                                         <div className="h-[200px] w-full overflow-hidden flex justify-center items-center">
                                             <Image
                                                 src={product.image}
@@ -133,12 +96,11 @@ export default function ProductsSection() {
                                                 width={400}
                                                 height={400}
                                                 className="w-full h-full object-cover"
-                                                data-ai-hint={product.aiHint}
                                             />
                                         </div>
                                     </Link>
                                     <div className="p-6 flex flex-col flex-grow">
-                                        <Link href={`/products/${product.id}`} className="block">
+                                        <Link href={`/products/${product.slug}`} className="block">
                                             <h3 className="text-xl font-headline font-semibold tracking-tight text-primary">{product.name}</h3>
                                             <p className="mt-2 h-12 text-sm text-muted-foreground">{product.description}</p>
                                         </Link>

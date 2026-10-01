@@ -59,7 +59,9 @@ export default function HeroSection() {
         }}
       >
         <CarouselContent>
-          {slides.map((slide, index) => (
+          {slides.map((slide, index) => {
+            const TitleTag = index === 0 ? "h1" : "p";
+            return (
             <CarouselItem key={index}>
               <div 
                 className="relative min-h-[600px] w-full"
@@ -72,9 +74,10 @@ export default function HeroSection() {
                   <div className="absolute inset-0 bg-black/50" />
                 </div>
                 <div className="relative flex h-full min-h-[calc(600px-5rem)] flex-col items-center justify-center text-center text-white px-4">
-                  <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl font-headline animate-slide-in-down">
+                  {/* Un solo h1 por página: los demás slides usan <p> con el mismo estilo. */}
+                  <TitleTag className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl font-headline animate-slide-in-down">
                     {slide.title}
-                  </h1>
+                  </TitleTag>
                   <p className="mt-4 max-w-[700px] text-lg text-gray-200 md:text-xl animate-slide-in-up">
                     {slide.subtitle}
                   </p>
@@ -88,7 +91,8 @@ export default function HeroSection() {
                 </div>
               </div>
             </CarouselItem>
-          ))}
+            );
+          })}
         </CarouselContent>
         <CarouselPrevious className="absolute left-4 top-1/2 -translate-y-1/2 text-white bg-white/20 hover:bg-white/30 border-none" />
         <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2 text-white bg-white/20 hover:bg-white/30 border-none" />

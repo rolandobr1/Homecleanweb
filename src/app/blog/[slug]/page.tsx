@@ -21,6 +21,7 @@ export async function generateMetadata({ params }: PageProps) {
     title: post.title,
     description: post.excerpt,
     image: post.image,
+    path: `/blog/${post.slug}`,
   });
 }
 

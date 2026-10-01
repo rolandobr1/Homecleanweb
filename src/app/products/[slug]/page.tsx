@@ -22,6 +22,7 @@ export async function generateMetadata({ params }: PageProps) {
     title: `${product.name} - Calidad Superior en RD`,
     description: product.description,
     image: product.image,
+    path: `/products/${product.slug}`,
   });
 }
 

@@ -1,5 +1,12 @@
 import RegistrationForm from "@/components/emprende/RegistrationForm";
 import Image from "next/image";
+import { constructMetadata } from "@/lib/metadata";
+
+export const metadata = constructMetadata({
+  title: "Emprende con HomeCleanRD | Sé Distribuidor",
+  description: "Conviértete en distribuidor de productos de limpieza HomeCleanRD en República Dominicana. Precios especiales al por mayor.",
+  path: "/emprende",
+});
 
 export default function EmprendePage() {
   return (

@@ -8,6 +8,9 @@ import EntrepreneurSection from "@/components/landing/EntrepreneurSection";
 import { FAQSchema } from "@/components/seo/JsonLd";
 import { faqs, siteConfig } from "@/lib/data";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { constructMetadata } from "@/lib/metadata";
+
+export const metadata = constructMetadata({ path: "" });
 
 export default function Home() {
   return (

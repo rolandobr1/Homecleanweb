@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 export const metadata = constructMetadata({
   title: "Blog de Limpieza y Desinfección en RD",
   description: "Consejos expertos sobre limpieza profunda, uso de jabón de cuaba y desinfección de hogares en República Dominicana.",
+  path: "/blog",
 });
 
 export default function BlogPage() {

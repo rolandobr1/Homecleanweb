@@ -3,6 +3,13 @@ import { categories, products } from "@/lib/data";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { constructMetadata } from "@/lib/metadata";
+
+export const metadata = constructMetadata({
+  title: "Catálogo de Productos de Limpieza",
+  description: "Jabones, desinfectantes y productos para la cocina de HomeCleanRD. Pide por WhatsApp en Santo Domingo y todo el país.",
+  path: "/products",
+});
 
 export default function ProductsPage() {
   return (

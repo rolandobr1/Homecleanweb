@@ -18,6 +18,7 @@ export async function generateMetadata({ params }: PageProps) {
   return constructMetadata({
     title: category.seoTitle,
     description: category.description,
+    path: `/products/category/${category.slug}`,
   });
 }
 

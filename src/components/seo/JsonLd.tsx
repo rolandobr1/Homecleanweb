@@ -1,5 +1,5 @@
 
-import { siteConfig } from "@/lib/data";
+import { categories, siteConfig } from "@/lib/data";
 
 export function LocalBusinessSchema() {
   const schema = {
@@ -35,29 +35,37 @@ export function LocalBusinessSchema() {
   );
 }
 
-export function ProductSchema({ product }: { product: any }) {
-  const schema = {
+type ProductForSchema = {
+  slug: string;
+  name: string;
+  description: string;
+  image: string;
+  category: string;
+};
+
+// Sin "offers": Google exige precio en la oferta y no publicamos precios en la web.
+export function buildProductSchema(product: ProductForSchema) {
+  const category = categories.find((c) => c.slug === product.category);
+  return {
     "@context": "https://schema.org",
     "@type": "Product",
     "name": product.name,
     "image": `${siteConfig.url}${product.image}`,
     "description": product.description,
+    "url": `${siteConfig.url}/products/${product.slug}`,
+    "category": category?.name ?? product.category,
     "brand": {
       "@type": "Brand",
       "name": siteConfig.name
-    },
-    "offers": {
-      "@type": "Offer",
-      "url": `${siteConfig.url}/products/${product.slug}`,
-      "priceCurrency": "DOP",
-      "availability": "https://schema.org/InStock"
     }
   };
+}
 
+export function ProductSchema({ product }: { product: ProductForSchema }) {
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(buildProductSchema(product)) }}
     />
   );
 }
