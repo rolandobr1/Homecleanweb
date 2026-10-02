@@ -1,6 +1,3 @@
-"use client";
-
-import React, { useEffect, useRef, useState } from 'react';
 import Image from "next/image";
 import {
   Card,
@@ -10,11 +7,9 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { products, siteConfig } from '@/lib/data';
-import { reveal, revealDelayMs } from "@/lib/motion";
 
 // Única fuente de verdad: src/lib/data.ts. Así cada tarjeta enlaza a una ficha que existe.
 export const homeProducts = products.map((p) => ({
@@ -27,40 +22,7 @@ export const homeProducts = products.map((p) => ({
 }));
 
 export default function ProductsSection() {
-    const [visibleProducts, setVisibleProducts] = useState<Record<number, boolean>>({});
-    const productRefs = useRef<(HTMLDivElement | null)[]>([]);
     const whatsappNumber = siteConfig.whatsapp;
-
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        const index = parseInt(entry.target.getAttribute('data-index') || '0', 10);
-                        setVisibleProducts((prev) => ({ ...prev, [index]: true }));
-                        observer.unobserve(entry.target);
-                    }
-                });
-            },
-            {
-                threshold: 0.1,
-            }
-        );
-
-        productRefs.current.forEach((ref) => {
-            if (ref) {
-                observer.observe(ref);
-            }
-        });
-
-        return () => {
-            productRefs.current.forEach((ref) => {
-                if (ref) {
-                    observer.unobserve(ref);
-                }
-            });
-        };
-    }, []);
 
     return (
         <section id="products" className="py-16 sm:py-24 bg-white">
@@ -78,16 +40,7 @@ export default function ProductsSection() {
                         const message = encodeURIComponent(`¡Hola! Vengo desde su página web. Quiero ordenar ${product.name}.`);
                         const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
                         return (
-                            <div
-                                key={product.slug}
-                                ref={(el) => { productRefs.current[index] = el; }}
-                                data-index={index}
-                                className={cn(
-                                    reveal.hidden, "h-full flex flex-col",
-                                    visibleProducts[index] && reveal.visible
-                                )}
-                                style={{ transitionDelay: `${revealDelayMs(index)}ms` }}
-                            >
+                            <div key={product.slug} className="reveal h-full flex flex-col">
                                 <div className="product-card-gradient h-full rounded-[20px] overflow-hidden shadow-lg transition-[transform,box-shadow] duration-200 ease-out hover:-translate-y-1 hover:shadow-xl flex flex-col flex-grow">
                                     <Link href={`/products/${product.slug}`} className="block">
                                         {/* Misma proporción que las fotos (1836×1475 ≈ 5:4): se ven completas, sin recorte. */}

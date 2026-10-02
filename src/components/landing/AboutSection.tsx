@@ -1,49 +1,10 @@
-"use client";
-
-import React, { useEffect, useRef, useState } from 'react';
 import Image from "next/image";
-import { cn } from '@/lib/utils';
-import { reveal, revealDelayMs } from "@/lib/motion";
 
 export default function AboutSection() {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      {
-        threshold: 0.1,
-      }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
-  }, []);
 
   return (
     <section id="about" className="py-16 sm:py-24 bg-gradient-to-b from-primary/90 to-primary text-primary-foreground">
-      <div
-        ref={sectionRef}
-        className={cn(
-          "container mx-auto px-4 md:px-6", reveal.hidden,
-          isVisible && reveal.visible
-        )}
-      >
+      <div className="reveal container mx-auto px-4 md:px-6">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl font-headline text-white">

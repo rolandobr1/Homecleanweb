@@ -73,6 +73,7 @@ export default function HeroSection() {
                     fill
                     sizes="100vw"
                     priority={index === 0}
+                    fetchPriority={index === 0 ? "high" : undefined}
                     className="object-cover object-center"
                   />
                   <div className="absolute inset-0 bg-black/50" />

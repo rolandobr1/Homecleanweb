@@ -31,7 +31,7 @@ export default function RootLayout({
         <LocalBusinessSchema />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-RLPF7FYX39"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
         <Script id="google-analytics" strategy="afterInteractive">
           {`

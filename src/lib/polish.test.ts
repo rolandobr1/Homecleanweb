@@ -39,7 +39,7 @@ describe("WhatsApp con código de país (+1 República Dominicana)", () => {
   });
 });
 
-describe("apariciones al hacer scroll", () => {
+describe("apariciones al hacer scroll (solo CSS, sin JavaScript)", () => {
   const sections = [
     "src/components/landing/ProductsSection.tsx",
     "src/components/landing/BenefitsSection.tsx",
@@ -47,20 +47,26 @@ describe("apariciones al hacer scroll", () => {
     "src/components/landing/EntrepreneurSection.tsx",
   ];
 
-  it("la clase compartida dura 300ms, se mueve 8px, usa ease-out fuerte y respeta reducir movimiento", async () => {
-    const { reveal, revealDelayMs } = await import("@/lib/motion");
-    expect(reveal.hidden).toContain("duration-300");
-    expect(reveal.hidden).toContain("translate-y-2");
-    expect(reveal.hidden).toContain("ease-[cubic-bezier(0.23,1,0.32,1)]");
-    expect(reveal.hidden).toContain("motion-reduce:translate-y-0");
-    expect(reveal.hidden).not.toContain("transition-all");
-    expect(revealDelayMs(4)).toBe(200);
+  it.each(sections)("%s es un componente de servidor: sin 'use client' ni IntersectionObserver", (file) => {
+    const s = src(file);
+    expect(s).not.toMatch(/^["']use client["']/m);
+    expect(s).not.toContain("IntersectionObserver");
+    expect(s).toContain("reveal");
   });
 
-  it.each(sections)("%s usa la clase compartida y ya no 700ms", (file) => {
-    const s = src(file);
-    expect(s).not.toContain("duration-700");
-    expect(s).toContain("reveal.");
+  it.each(sections)("%s se ve completo en el HTML (nada nace con opacity-0)", async (file) => {
+    const mod = await import(`@/components/landing/${file.split("/").pop()!.replace(".tsx", "")}`);
+    const html = render(createElement(mod.default));
+    expect(html).not.toMatch(/class="[^"]*\bopacity-0\b/);
+    expect(html).toContain('class="reveal');
+  });
+
+  it("la animación vive en CSS: solo donde hay scroll-driven animations y sin 'reducir movimiento'", () => {
+    const css = src("src/app/globals.css");
+    expect(css).toMatch(/@supports \(animation-timeline: view\(\)\)/);
+    expect(css).toMatch(/@media \(prefers-reduced-motion: no-preference\)/);
+    expect(css).toMatch(/\.reveal\s*\{[^}]*animation-timeline:\s*view\(\)/);
+    expect(css).toMatch(/@keyframes reveal-in\s*\{\s*from\s*\{[^}]*opacity:\s*0[^}]*translateY\(8px\)/);
   });
 });
 
@@ -148,4 +154,23 @@ describe("fotos de las tarjetas de producto", () => {
       expect(b).toMatch(/sizes="\(min-width: 1024px\) 33vw, \(min-width: 768px\) 50vw, 100vw"/);
     }
   });
+});
+
+describe("LCP en celular", () => {
+  it("la foto del primer slide pide prioridad alta; las demás no", () => {
+    const s = src("src/components/landing/HeroSection.tsx");
+    expect(s).toMatch(/fetchPriority=\{index === 0 \? "high" : undefined\}/);
+  });
+
+  it("el CSS va dentro del HTML (sin solicitud que bloquee el render)", async () => {
+    const config = (await import("../../next.config")).default as { experimental?: { inlineCss?: boolean } };
+    expect(config.experimental?.inlineCss).toBe(true);
+  });
+
+  it("gtag.js se carga cuando el navegador está libre, pero la cola de eventos existe desde el inicio", () => {
+    const s = src("src/app/layout.tsx");
+    expect(s).toMatch(/src="https:\/\/www\.googletagmanager\.com\/gtag\/js\?id=G-RLPF7FYX39"\s*strategy="lazyOnload"/);
+    expect(s).toMatch(/id="google-analytics" strategy="afterInteractive"/);
+  });
+
 });
