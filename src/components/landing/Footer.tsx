@@ -85,7 +85,16 @@ export default function Footer() {
           </div>
         </div>
         <div className="border-t border-gray-700 mt-8 pt-6 text-center text-sm text-gray-400">
-          <p>&copy; {year} {siteConfig.name}. Todos los derechos reservados.</p>
+          <p>
+            &copy; {year} {siteConfig.name}. Todos los derechos reservados.
+            <span aria-hidden="true" className="mx-2">·</span>
+            <a
+              href="https://homecleanrd.netlify.app"
+              target="_blank"
+              rel="nofollow noopener noreferrer"
+              className="text-gray-400 underline underline-offset-2 hover:text-gray-200"
+            >Acceso equipo</a>
+          </p>
         </div>
       </div>
     </footer>

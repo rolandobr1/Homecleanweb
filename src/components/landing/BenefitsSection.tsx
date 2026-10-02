@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Sparkles, Wind, PackageCheck } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { cn } from '@/lib/utils';
+import { reveal, revealDelayMs } from "@/lib/motion";
 
 interface Benefit {
   icon: LucideIcon;
@@ -83,10 +84,10 @@ export default function BenefitsSection() {
               ref={(el) => { benefitRefs.current[index] = el; }}
               data-index={index}
               className={cn(
-                  "transition-all duration-700 ease-out transform opacity-0 translate-y-5",
-                  visibleBenefits[index] && "opacity-100 translate-y-0"
+                  reveal.hidden,
+                  visibleBenefits[index] && reveal.visible
               )}
-              style={{ transitionDelay: `${index * 150}ms` }}
+              style={{ transitionDelay: `${revealDelayMs(index)}ms` }}
             >
               <Card className="text-center shadow-lg hover:shadow-xl transition-shadow duration-300 h-full">
                 <CardHeader className="items-center">

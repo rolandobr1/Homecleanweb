@@ -47,9 +47,6 @@ export default function Header() {
         </nav>
 
         <div className="hidden md:flex items-center gap-4">
-          <Link href="https://homecleanrd.netlify.app" target="_blank">
-            <Button variant="ghost" className="text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground">Iniciar Sesión</Button>
-          </Link>
           <div className="flex items-center gap-4">
               <Link href="https://web.facebook.com/profile.php?id=100063748722913" target="_blank" rel="noopener noreferrer" className="text-primary-foreground hover:opacity-80">
                 <Image src="/images/facebook.png" alt="Facebook" width={24} height={24} />
@@ -96,9 +93,6 @@ export default function Header() {
                 ))}
               </nav>
               <div className="border-t pt-6 flex flex-col gap-4">
-                <Link href="https://homecleanrd.netlify.app" target="_blank">
-                    <Button className="w-full">Iniciar Sesión</Button>
-                </Link>
                 <div className="flex justify-center gap-6">
                     <Link href="https://web.facebook.com/profile.php?id=100063748722913" target="_blank" rel="noopener noreferrer">
                        <Image src="/images/facebook.png" alt="Facebook" width={24} height={24} />

@@ -1,6 +1,8 @@
 import type {Config} from 'tailwindcss';
 
 export default {
+  // Los estilos hover: solo aplican en dispositivos con mouse (evita hover "pegado" al tocar en el celular).
+  future: { hoverOnlyWhenSupported: true },
   darkMode: ['class'],
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',

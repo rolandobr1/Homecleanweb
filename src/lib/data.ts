@@ -8,7 +8,8 @@ export const siteConfig = {
   description: "Productos de limpieza de alta calidad en República Dominicana. Jabón de cuaba, desinfectantes y más para un hogar impecable.",
   phone: "809-477-2885",
   address: "Santo Domingo, República Dominicana",
-  whatsapp: "8094772885",
+  // Formato internacional para wa.me: código de país +1 (República Dominicana) + número.
+  whatsapp: "18094772885",
   email: "infohomecleanrd@gmail.com"
 };
 

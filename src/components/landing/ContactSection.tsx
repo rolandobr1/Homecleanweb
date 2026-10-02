@@ -1,6 +1,7 @@
 import ContactForm from "./ContactForm";
 import { Phone, Mail } from "lucide-react";
 import Link from 'next/link';
+import { siteConfig } from "@/lib/data";
 
 const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <svg 
@@ -35,7 +36,7 @@ const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
 
 
 export default function ContactSection() {
-  const whatsappNumber = "8094772885";
+  const whatsappNumber = siteConfig.whatsapp;
   const message = encodeURIComponent("¡Hola! Vengo desde su página web y estoy interesado en sus productos.");
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
 

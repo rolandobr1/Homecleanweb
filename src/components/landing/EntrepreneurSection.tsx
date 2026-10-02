@@ -6,6 +6,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { cn } from '@/lib/utils';
+import { reveal, revealDelayMs } from "@/lib/motion";
 
 export default function EntrepreneurSection() {
     const [isVisible, setIsVisible] = useState(false);
@@ -42,8 +43,8 @@ export default function EntrepreneurSection() {
             <div 
                 ref={sectionRef}
                 className={cn(
-                    "container mx-auto px-4 md:px-6 transition-all duration-700 ease-out transform opacity-0 translate-y-5",
-                    isVisible && "opacity-100 translate-y-0"
+                    "container mx-auto px-4 md:px-6", reveal.hidden,
+                    isVisible && reveal.visible
                 )}
             >
                 <div className="grid md:grid-cols-2 gap-12 items-center bg-gray-50 p-8 md:p-12 rounded-2xl shadow-sm">

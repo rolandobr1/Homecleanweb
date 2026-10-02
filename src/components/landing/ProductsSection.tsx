@@ -14,6 +14,7 @@ import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { products, siteConfig } from '@/lib/data';
+import { reveal, revealDelayMs } from "@/lib/motion";
 
 // Única fuente de verdad: src/lib/data.ts. Así cada tarjeta enlaza a una ficha que existe.
 export const homeProducts = products.map((p) => ({
@@ -82,20 +83,21 @@ export default function ProductsSection() {
                                 ref={(el) => { productRefs.current[index] = el; }}
                                 data-index={index}
                                 className={cn(
-                                    "transition-all duration-700 ease-out transform opacity-0 translate-y-5 h-full flex flex-col",
-                                    visibleProducts[index] && "opacity-100 translate-y-0"
+                                    reveal.hidden, "h-full flex flex-col",
+                                    visibleProducts[index] && reveal.visible
                                 )}
-                                style={{ transitionDelay: `${index * 100}ms` }}
+                                style={{ transitionDelay: `${revealDelayMs(index)}ms` }}
                             >
-                                <div className="product-card-gradient h-full rounded-[20px] overflow-hidden shadow-lg transition-all duration-300 ease-in-out hover:-translate-y-2.5 hover:shadow-2xl flex flex-col flex-grow">
+                                <div className="product-card-gradient h-full rounded-[20px] overflow-hidden shadow-lg transition-[transform,box-shadow] duration-200 ease-out hover:-translate-y-1 hover:shadow-xl flex flex-col flex-grow">
                                     <Link href={`/products/${product.slug}`} className="block">
-                                        <div className="h-[200px] w-full overflow-hidden flex justify-center items-center">
+                                        {/* Misma proporción que las fotos (1836×1475 ≈ 5:4): se ven completas, sin recorte. */}
+                                        <div className="relative aspect-[5/4] w-full overflow-hidden">
                                             <Image
                                                 src={product.image}
                                                 alt={product.name}
-                                                width={400}
-                                                height={400}
-                                                className="w-full h-full object-cover"
+                                                fill
+                                                sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                                                className="object-cover"
                                             />
                                         </div>
                                     </Link>

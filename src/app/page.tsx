@@ -6,7 +6,8 @@ import AboutSection from "@/components/landing/AboutSection";
 import ContactSection from "@/components/landing/ContactSection";
 import EntrepreneurSection from "@/components/landing/EntrepreneurSection";
 import { FAQSchema } from "@/components/seo/JsonLd";
-import { faqs, siteConfig } from "@/lib/data";
+import { categories, faqs, siteConfig } from "@/lib/data";
+import Link from "next/link";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { constructMetadata } from "@/lib/metadata";
 
@@ -23,10 +24,14 @@ export default function Home() {
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-2xl font-bold mb-8">Soluciones Especializadas para tu Hogar en RD</h2>
           <div className="flex flex-wrap justify-center gap-4">
-            {["Jabones", "Desinfectantes", "Cuidado de Cocina"].map(cat => (
-              <span key={cat} className="px-6 py-2 bg-white rounded-full shadow-sm border font-medium text-primary">
-                {cat}
-              </span>
+            {categories.map(cat => (
+              <Link
+                key={cat.slug}
+                href={`/products/category/${cat.slug}`}
+                className="px-6 py-2 bg-white rounded-full shadow-sm border font-medium text-primary transition-[transform,box-shadow] duration-150 ease-out hover:shadow-md active:scale-[0.97]"
+              >
+                {cat.slug === "cocina" ? "Cuidado de Cocina" : cat.name}
+              </Link>
             ))}
           </div>
         </div>

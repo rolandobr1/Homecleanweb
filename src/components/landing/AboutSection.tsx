@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Image from "next/image";
 import { cn } from '@/lib/utils';
+import { reveal, revealDelayMs } from "@/lib/motion";
 
 export default function AboutSection() {
   const [isVisible, setIsVisible] = useState(false);
@@ -39,8 +40,8 @@ export default function AboutSection() {
       <div
         ref={sectionRef}
         className={cn(
-          "container mx-auto px-4 md:px-6 transition-all duration-700 ease-out transform opacity-0 translate-y-5",
-          isVisible && "opacity-100 translate-y-0"
+          "container mx-auto px-4 md:px-6", reveal.hidden,
+          isVisible && reveal.visible
         )}
       >
         <div className="grid md:grid-cols-2 gap-12 items-center">

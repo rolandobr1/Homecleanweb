@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
@@ -14,6 +14,11 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const { alternates: _canonicalDeLaHome, ...baseMetadata } = constructMetadata();
 // El canonical lo declara cada página; el layout no lo impone para que ninguna lo herede por error.
 export const metadata: Metadata = baseMetadata;
+
+// Barra del navegador en el celular del mismo azul que el header (--primary).
+export const viewport: Viewport = {
+  themeColor: "#216dc4",
+};
 
 export default function RootLayout({
   children,

@@ -79,10 +79,10 @@ export default function HeroSection() {
                 </div>
                 <div className="relative flex h-full min-h-[calc(600px-5rem)] flex-col items-center justify-center text-center text-white px-4">
                   {/* Un solo h1 por página: los demás slides usan <p> con el mismo estilo. */}
-                  <TitleTag className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl font-headline animate-slide-in-down">
+                  <TitleTag className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl font-headline">
                     {slide.title}
                   </TitleTag>
-                  <p className="mt-4 max-w-[700px] text-lg text-gray-200 md:text-xl animate-slide-in-up">
+                  <p className="mt-4 max-w-[700px] text-lg text-gray-200 md:text-xl">
                     {slide.subtitle}
                   </p>
                   <div className="mt-8">
@@ -98,8 +98,8 @@ export default function HeroSection() {
             );
           })}
         </CarouselContent>
-        <CarouselPrevious className="absolute left-4 top-1/2 -translate-y-1/2 text-white bg-white/20 hover:bg-white/30 border-none" />
-        <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2 text-white bg-white/20 hover:bg-white/30 border-none" />
+        <CarouselPrevious className="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 text-white bg-white/20 hover:bg-white/30 border-none" />
+        <CarouselNext className="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 text-white bg-white/20 hover:bg-white/30 border-none" />
       </Carousel>
     </section>
   );

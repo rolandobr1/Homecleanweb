@@ -79,6 +79,14 @@ body {
 }
 
 @layer base {
+  html {
+    /* Sin destello gris/azul al tocar en iOS/Android; los botones tienen su propio :active. */
+    -webkit-tap-highlight-color: transparent;
+  }
+  a, button, [role="button"] {
+    /* El toque responde de inmediato (sin esperar un posible doble toque). */
+    touch-action: manipulation;
+  }
   * {
     @apply border-border;
   }
