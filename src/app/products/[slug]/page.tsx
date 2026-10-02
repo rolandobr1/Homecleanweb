@@ -81,7 +81,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
             </div>
 
             <Button asChild size="lg" className="w-full sm:w-auto bg-green-700 hover:bg-green-800 text-white">
-              <Link href={whatsappUrl} target="_blank">
+              <Link href={whatsappUrl} target="_blank" data-wa-location="product_page" data-wa-product={product.slug}>
                 Pedir por WhatsApp
               </Link>
             </Button>

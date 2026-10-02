@@ -111,6 +111,7 @@ export default async function BlogPostPage({ params }: PageProps) {
             <Link 
               href={`https://wa.me/${siteConfig.whatsapp}`} 
               target="_blank"
+              data-wa-location="blog_cta"
               className="px-8 py-3 bg-green-700 text-white rounded-full font-bold hover:bg-green-800 transition-all flex items-center justify-center gap-2"
             >
               Consultar por WhatsApp

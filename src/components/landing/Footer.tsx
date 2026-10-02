@@ -78,7 +78,7 @@ export default function Footer() {
               <Link href="https://www.instagram.com/homeclean_rd/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                 <Image src="/images/ig.png" alt="Instagram" width={24} height={24} className="hover:opacity-80" />
               </Link>
-              <Link href={whatsappUrl} target="_blank" aria-label="WhatsApp">
+              <Link href={whatsappUrl} target="_blank" aria-label="WhatsApp" data-wa-location="footer">
                 <Image src="/images/wa.png" alt="WhatsApp" width={24} height={24} className="hover:opacity-80" />
               </Link>
             </div>

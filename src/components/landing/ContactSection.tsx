@@ -68,7 +68,7 @@ export default function ContactSection() {
                <WhatsAppIcon className="h-6 w-6 text-primary mt-1" />
               <div>
                 <h4 className="font-semibold">WhatsApp</h4>
-                <Link href={whatsappUrl} target="_blank" className="text-primary hover:underline">
+                <Link href={whatsappUrl} target="_blank" data-wa-location="contact" className="text-primary hover:underline">
                    (809) 477-2885
                 </Link>
               </div>

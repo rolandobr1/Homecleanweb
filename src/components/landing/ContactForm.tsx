@@ -16,6 +16,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { sendContactEmail } from "@/app/actions";
+import { trackEvent } from "@/lib/analytics";
 
 const formSchema = z.object({
   fullName: z.string().min(2, {
@@ -44,6 +45,7 @@ export default function ContactForm() {
         const result = await sendContactEmail(values);
 
         if (result.success) {
+            trackEvent("contact_form_submit");
             toast({
                 title: "¡Mensaje Enviado!",
                 description: "Gracias por contactarnos. Te responderemos pronto.",

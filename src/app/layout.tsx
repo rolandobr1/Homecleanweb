@@ -7,6 +7,7 @@ import Footer from "@/components/landing/Footer";
 import { constructMetadata } from "@/lib/metadata";
 import { LocalBusinessSchema } from "@/components/seo/JsonLd";
 import Script from "next/script";
+import WhatsAppTracker from "@/components/analytics/WhatsAppTracker";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
@@ -43,6 +44,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <Toaster />
+        <WhatsAppTracker />
       </body>
     </html>
   );

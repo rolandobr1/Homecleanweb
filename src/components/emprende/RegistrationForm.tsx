@@ -16,6 +16,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { sendRegistrationEmail } from "@/app/actions";
+import { trackEvent } from "@/lib/analytics";
 
 const formSchema = z.object({
   fullName: z.string().min(2, "El nombre debe tener al menos 2 caracteres."),
@@ -40,6 +41,7 @@ export default function RegistrationForm() {
         const result = await sendRegistrationEmail(values);
 
         if (result.success) {
+            trackEvent("distributor_signup");
             toast({
                 title: "¡Registro Enviado!",
                 description: "Gracias por tu interés. Nos pondremos en contacto contigo pronto.",

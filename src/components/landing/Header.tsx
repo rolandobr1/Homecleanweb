@@ -57,7 +57,7 @@ export default function Header() {
               <Link href="https://www.instagram.com/homeclean_rd/" target="_blank" rel="noopener noreferrer" className="text-primary-foreground hover:opacity-80">
                 <Image src="/images/ig.png" alt="Instagram" width={24} height={24} />
               </Link>
-              <Link href={whatsappUrl} target="_blank" className="text-primary-foreground hover:opacity-80">
+              <Link href={whatsappUrl} target="_blank" data-wa-location="header" className="text-primary-foreground hover:opacity-80">
                 <Image src="/images/wa.png" alt="WhatsApp" width={24} height={24} />
               </Link>
           </div>
@@ -106,7 +106,7 @@ export default function Header() {
                     <Link href="https://www.instagram.com/homeclean_rd/" target="_blank" rel="noopener noreferrer">
                        <Image src="/images/ig.png" alt="Instagram" width={24} height={24} />
                     </Link>
-                    <Link href={whatsappUrl} target="_blank">
+                    <Link href={whatsappUrl} target="_blank" data-wa-location="header">
                         <Image src="/images/wa.png" alt="WhatsApp" width={24} height={24} />
                     </Link>
                 </div>

@@ -117,7 +117,7 @@ export default function ProductsSection() {
                                                 ))}
                                             </div>
                                             <Button asChild className="bg-green-700 hover:bg-green-800 text-white w-full mt-4">
-                                                <Link href={whatsappUrl} target="_blank">
+                                                <Link href={whatsappUrl} target="_blank" data-wa-location="product_card" data-wa-product={product.slug}>
                                                     <Image src="/images/wa.png" alt="WhatsApp" width={20} height={20} className="mr-2" />
                                                     Ordenar
                                                 </Link>
