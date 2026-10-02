@@ -1,6 +1,7 @@
 
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
@@ -20,7 +21,6 @@ const slides = [
     buttonText: "Ver Nuestros Productos",
     buttonLink: "/products",
     imageUrl: placeholderImages.hero.slide1,
-    dataAiHint: "cleaning products",
   },
   {
     title: "Poder Desengrasante que Cuida tus Manos",
@@ -28,7 +28,6 @@ const slides = [
     buttonText: "Descubre el Lavaplatos",
     buttonLink: "/products/lavaplatos-liquido",
     imageUrl: placeholderImages.hero.slide2,
-    dataAiHint: "clean kitchen sink",
   },
   {
     title: "Un Ambiente Fresco y Libre de Gérmenes",
@@ -36,7 +35,6 @@ const slides = [
     buttonText: "Explora Desinfectantes",
     buttonLink: "/products/desinfectante-lavanda",
     imageUrl: placeholderImages.hero.slide3,
-    dataAiHint: "clean living room",
   },
 ];
 
@@ -66,11 +64,17 @@ export default function HeroSection() {
               <div 
                 className="relative min-h-[600px] w-full"
               >
-                <div 
-                  className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-500"
-                  style={{ backgroundImage: `url('${slide.imageUrl}')` }}
-                  data-ai-hint={slide.dataAiHint}
-                >
+                <div className="absolute inset-0">
+                  {/* next/image: el navegador descubre la imagen en el HTML y Netlify la sirve optimizada.
+                      Solo el primer slide es el LCP, así que solo ese lleva prioridad. */}
+                  <Image
+                    src={slide.imageUrl}
+                    alt=""
+                    fill
+                    sizes="100vw"
+                    priority={index === 0}
+                    className="object-cover object-center"
+                  />
                   <div className="absolute inset-0 bg-black/50" />
                 </div>
                 <div className="relative flex h-full min-h-[calc(600px-5rem)] flex-col items-center justify-center text-center text-white px-4">

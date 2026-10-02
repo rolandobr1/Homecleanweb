@@ -11,7 +11,6 @@ const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
       x="0px" 
       y="0px" 
       viewBox="0 0 121.07 121.06"
-	  style={{enableBackground:"new 0 0 121.07 121.06"}}
       xmlSpace="preserve"
       {...props}
     >

@@ -35,7 +35,7 @@ export default function EmprendePage() {
       <section className="py-16 sm:py-24 px-4 md:px-6">
         <div className="container mx-auto max-w-2xl">
             <div className="bg-white p-8 rounded-lg shadow-2xl border">
-                <h3 className="text-2xl font-bold mb-6 font-headline text-center">Formulario de Registro</h3>
+                <h2 className="text-2xl font-bold mb-6 font-headline text-center">Formulario de Registro</h2>
                 <RegistrationForm />
             </div>
         </div>

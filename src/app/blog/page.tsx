@@ -23,13 +23,15 @@ export default function BlogPage() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-12">
-          {blogPosts.map((post) => (
+          {blogPosts.map((post, index) => (
             <article key={post.slug} className="group border rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all">
               <Link href={`/blog/${post.slug}`} className="block relative h-64 w-full overflow-hidden">
                 <Image
                   src={post.image}
                   alt={post.title}
                   fill
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                  priority={index === 0}
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               </Link>

@@ -46,7 +46,7 @@ export default function Footer() {
             </p>
           </div>
           <div>
-            <h4 className="font-semibold mb-4 text-blue-400">Productos</h4>
+            <h2 className="font-semibold mb-4 text-blue-400">Productos</h2>
             <ul className="space-y-2">
               {footerLinks.products.map((link) => (
                 <li key={link.label}>
@@ -58,7 +58,7 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h4 className="font-semibold mb-4 text-blue-400">Empresa</h4>
+            <h2 className="font-semibold mb-4 text-blue-400">Empresa</h2>
             <ul className="space-y-2">
               {footerLinks.company.map((link) => (
                 <li key={link.label}>
@@ -70,7 +70,7 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h4 className="font-semibold mb-4 text-blue-400">Síguenos</h4>
+            <h2 className="font-semibold mb-4 text-blue-400">Síguenos</h2>
             <div className="flex items-center gap-4">
                <Link href="https://web.facebook.com/profile.php?id=100063748722913" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                 <Image src="/images/facebook.png" alt="Facebook" width={24} height={24} className="hover:opacity-80" />

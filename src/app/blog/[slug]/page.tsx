@@ -12,6 +12,11 @@ interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
+// Se genera una página estática por artículo al compilar.
+export function generateStaticParams() {
+  return blogPosts.map((p) => ({ slug: p.slug }));
+}
+
 export async function generateMetadata({ params }: PageProps) {
   const { slug } = await params;
   const post = blogPosts.find(p => p.slug === slug);
@@ -106,7 +111,7 @@ export default async function BlogPostPage({ params }: PageProps) {
             <Link 
               href={`https://wa.me/${siteConfig.whatsapp}`} 
               target="_blank"
-              className="px-8 py-3 bg-green-500 text-white rounded-full font-bold hover:bg-green-600 transition-all flex items-center justify-center gap-2"
+              className="px-8 py-3 bg-green-700 text-white rounded-full font-bold hover:bg-green-800 transition-all flex items-center justify-center gap-2"
             >
               Consultar por WhatsApp
             </Link>

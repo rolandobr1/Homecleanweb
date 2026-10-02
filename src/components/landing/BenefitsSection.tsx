@@ -80,7 +80,7 @@ export default function BenefitsSection() {
           {benefits.map((benefit, index) => (
             <div
               key={index}
-              ref={(el) => (benefitRefs.current[index] = el)}
+              ref={(el) => { benefitRefs.current[index] = el; }}
               data-index={index}
               className={cn(
                   "transition-all duration-700 ease-out transform opacity-0 translate-y-5",

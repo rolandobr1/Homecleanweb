@@ -10,6 +10,11 @@ interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
+// Se genera una página estática por categoría al compilar.
+export function generateStaticParams() {
+  return categories.map((c) => ({ slug: c.slug }));
+}
+
 export async function generateMetadata({ params }: PageProps) {
   const { slug } = await params;
   const category = categories.find(c => c.slug === slug);
@@ -51,7 +56,7 @@ export default async function CategoryPage({ params }: PageProps) {
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">{product.name}</h3>
+                <h2 className="text-xl font-bold mb-2">{product.name}</h2>
                 <p className="text-muted-foreground text-sm mb-4 line-clamp-2">{product.shortDescription}</p>
                 <Button asChild className="w-full">
                   <Link href={`/products/${product.slug}`}>Ver Detalles</Link>

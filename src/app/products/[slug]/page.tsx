@@ -13,6 +13,11 @@ interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
+// Se genera una página estática por producto al compilar (sin función en cada visita).
+export function generateStaticParams() {
+  return products.map((p) => ({ slug: p.slug }));
+}
+
 export async function generateMetadata({ params }: PageProps) {
   const { slug } = await params;
   const product = products.find(p => p.slug === slug);
@@ -56,7 +61,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
             </p>
             
             <div className="space-y-4">
-              <h3 className="font-semibold text-lg">Presentaciones Disponibles:</h3>
+              <h2 className="font-semibold text-lg">Presentaciones Disponibles:</h2>
               <div className="flex flex-wrap gap-2">
                 {product.sizes.map(size => (
                   <Badge key={size} variant="secondary" className="text-md px-4 py-1">{size}</Badge>
@@ -65,7 +70,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
             </div>
 
             <div className="space-y-4">
-              <h3 className="font-semibold text-lg">Características Principales:</h3>
+              <h2 className="font-semibold text-lg">Características Principales:</h2>
               <ul className="grid grid-cols-2 gap-2">
                 {product.features.map(f => (
                   <li key={f} className="flex items-center gap-2 text-muted-foreground">
@@ -75,7 +80,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
               </ul>
             </div>
 
-            <Button asChild size="lg" className="w-full sm:w-auto bg-green-500 hover:bg-green-600 text-white">
+            <Button asChild size="lg" className="w-full sm:w-auto bg-green-700 hover:bg-green-800 text-white">
               <Link href={whatsappUrl} target="_blank">
                 Pedir por WhatsApp
               </Link>

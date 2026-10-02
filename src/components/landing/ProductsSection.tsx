@@ -79,7 +79,7 @@ export default function ProductsSection() {
                         return (
                             <div
                                 key={product.slug}
-                                ref={(el) => (productRefs.current[index] = el)}
+                                ref={(el) => { productRefs.current[index] = el; }}
                                 data-index={index}
                                 className={cn(
                                     "transition-all duration-700 ease-out transform opacity-0 translate-y-5 h-full flex flex-col",
@@ -116,7 +116,7 @@ export default function ProductsSection() {
 
                                                 ))}
                                             </div>
-                                            <Button asChild className="bg-green-500 hover:bg-green-600 text-white w-full mt-4">
+                                            <Button asChild className="bg-green-700 hover:bg-green-800 text-white w-full mt-4">
                                                 <Link href={whatsappUrl} target="_blank">
                                                     <Image src="/images/wa.png" alt="WhatsApp" width={20} height={20} className="mr-2" />
                                                     Ordenar
